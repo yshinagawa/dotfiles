@@ -26,10 +26,40 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'taku-o/vim-catn'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
 
 syntax on
-colorscheme railscasts
-highlight LineNr ctermfg=244
+
+set tabline=%!MyTabLine()
+
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    let s .= '%' . (i + 1) . 'T'
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+  let s .= '%#TabLineFill#%T'
+  return s
+endfunction
+
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return bufname(buflist[winnr - 1])
+endfunction
+
+autocmd ColorScheme * highlight TabLineSel cterm=none
+autocmd ColorScheme * highlight TabLine cterm=reverse ctermfg=243 ctermbg=234
+autocmd ColorScheme * highlight TabLineFill cterm=reverse ctermfg=243 ctermbg=234 
+autocmd ColorScheme * highlight LineNr ctermfg=244
+autocmd ColorScheme * highlight Normal ctermbg=none
+colorscheme hybrid 
 
 filetype plugin indent on
 augroup cch
