@@ -9,18 +9,12 @@ prompt_git_dirty() {
 	(($? == 1)) && echo '*'
 }
 
-prompt_preexec() {
-	print -Pn "\e]0;"
-	echo -nE "$PWD:t: $2"
-	print -Pn "\a"
-}
 
 prompt_string_length() {
 	echo ${#${(S%%)1//(\%([KF1]|)\{*\}|\%[Bbkf])}}
 }
 
 prompt_precmd() {
-	print -Pn '\e]0;%~\a'
 	vcs_info
 	local prompt_preprompt='%F{blue}%~%F{242}$vcs_info_msg_0_`prompt_git_dirty` $prompt_username%f'
 	print -P $prompt_preprompt
@@ -45,7 +39,6 @@ prompt_minimum_setup() {
 	autoload -Uz vcs_info
 
 	add-zsh-hook precmd prompt_precmd
-	add-zsh-hook preexec prompt_preexec
 
 	zstyle ':vcs_info:*' enable git
 	zstyle ':vcs_info:git*' formats ' %b'
