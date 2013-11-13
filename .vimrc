@@ -54,12 +54,15 @@ function MyTabLabel(n)
   return bufname(buflist[winnr - 1])
 endfunction
 
-autocmd ColorScheme * highlight TabLineSel cterm=none
-autocmd ColorScheme * highlight TabLine cterm=reverse ctermfg=243 ctermbg=234
-autocmd ColorScheme * highlight TabLineFill cterm=reverse ctermfg=243 ctermbg=234 
-autocmd ColorScheme * highlight LineNr ctermfg=244
+autocmd ColorScheme * highlight TabLineSel cterm=none ctermfg=255
+autocmd ColorScheme * highlight TabLine cterm=none ctermfg=243 ctermbg=none
+autocmd ColorScheme * highlight TabLineFill cterm=none ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermfg=243
+autocmd ColorScheme * highlight StatusLine cterm=none ctermfg=255 ctermbg=232
+autocmd ColorScheme * highlight StatusLineNC cterm=none ctermfg=243 ctermbg=232
+autocmd ColorScheme * highlight CursorLine ctermbg=232
 autocmd ColorScheme * highlight Normal ctermbg=none
-colorscheme hybrid 
+colorscheme hybrid
 
 filetype plugin indent on
 augroup cch
