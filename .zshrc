@@ -142,6 +142,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+# z
+[[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
+
 # prompt 
 #[ -f ${HOME}/.zsh/themes/my.zsh-theme ] && source ${HOME}/.zsh/themes/my.zsh-theme
 
