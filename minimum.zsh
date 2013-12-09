@@ -16,7 +16,7 @@ prompt_string_length() {
 
 prompt_precmd() {
 	vcs_info
-  local prompt_preprompt='%F{blue}%~%F{242}$vcs_info_msg_0_`prompt_git_dirty` $prompt_username%f'
+  local prompt_preprompt='%F{blue}%~%F{242}$vcs_info_msg_0_`prompt_git_dirty`$prompt_username%f'
 	# prompt turns red if the previous command didn't exit with 0
   PROMPT="$prompt_preprompt%(?.%F{255}.%F{red})>%f "
 	# check async if there is anything to pull
@@ -47,7 +47,7 @@ prompt_minimum_setup() {
 	zstyle ':vcs_info:git*' actionformats ' %b|%a'
 
 	# show username@host if logged in through SSH
-	[[ "$SSH_CONNECTION" != '' ]] && prompt_username='%n@%m '
+	[[ "$SSH_CONNECTION" != '' ]] && prompt_username='%n@%m'
 }
 
 prompt_minimum_setup "$@"
