@@ -14,7 +14,7 @@ prompt_precmd() {
   local prompt_title='%~$vcs_info_msg_0_`prompt_git_dirty`$prompt_username'
   print -Pn "\033]0;${prompt_title}\007"
 	# prompt turns red if the previous command didn't exit with 0
-  PROMPT="%(?.%F{255}.%F{red})>%f "
+  PROMPT="%(?.%F{255}.%F{red})$%f "
 	# check async if there is anything to pull
 	(( ${GIT_PULL:-1} )) && {
 		# check if we're in a git repo
