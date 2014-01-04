@@ -74,8 +74,9 @@ function history-all { history -E 1 }
 ############################################################
 
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
-compinit
+compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select true
 zstyle ':completion:*' group-name ''
@@ -121,6 +122,7 @@ alias du="du -h"
 alias df="df -h"
 alias su="su -l"
 alias vr="vim -R"
+alias beep="afplay ~/.repos/dotfiles/Ping.aiff"
 
 ############################################################
 # plugins
