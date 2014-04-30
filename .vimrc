@@ -18,7 +18,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'mattn/zencoding-vim'  
+NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-quickrun'
@@ -77,7 +77,7 @@ set hlsearch
 set showmatch
 set smartindent
 set autoindent
-set tabstop=2 
+set tabstop=2
 set shiftwidth=2
 set expandtab
 set laststatus=2

@@ -1,10 +1,12 @@
+;; cl
+(require 'cl)
+
 ;; global emacs style
 (setq inhibit-startup-message t)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (global-linum-mode t)
-(setq linum-format "%3d ")
-
+(setq linum-format "%4d ")
 
 ;; global language
 (set-language-environment "Japanese")
@@ -67,5 +69,17 @@
   ;; global emacs style
   (menu-bar-mode t)
   (scroll-bar-mode 0)
+  (fringe-mode 0)
+  (add-to-list 'default-frame-alist '(height . 48))
+  (add-to-list 'default-frame-alist '(width . 108))
+  (setq frame-title-format (format "%%b @ Emacs %s" emacs-version))
+  (set-face-attribute 'default nil
+                     :family "Source Code Pro"
+                     :height 130)
+  (set-fontset-font nil 'japanese-jisx0208
+                    (font-spec :family "Hiragino Maru Gothic Pro"))
   (global-hl-line-mode t)
-  (setq ring-bell-function 'ignore))
+  (setq ring-bell-function 'ignore)
+
+  ;; theme
+  (load-theme 'solarized-light t))
