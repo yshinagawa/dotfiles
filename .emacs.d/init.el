@@ -86,5 +86,8 @@
   (global-hl-line-mode t)
   (setq ring-bell-function 'ignore)
 
+  ;; magit
+  (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
+
   ;; theme
   (load-theme 'leuven t))
