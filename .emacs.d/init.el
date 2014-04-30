@@ -3,10 +3,12 @@
 
 ;; global emacs style
 (setq inhibit-startup-message t)
+(setq initial-scratch-message "")
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (global-linum-mode t)
 (setq linum-format "%4d ")
+(blink-cursor-mode 0)
 
 ;; global language
 (set-language-environment "Japanese")
@@ -49,6 +51,9 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; magit
+(require 'magit)
+
 ;; theme
 
 ;; elisp
@@ -82,4 +87,4 @@
   (setq ring-bell-function 'ignore)
 
   ;; theme
-  (load-theme 'solarized-light t))
+  (load-theme 'leuven t))
