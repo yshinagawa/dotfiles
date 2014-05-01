@@ -1,5 +1,5 @@
 ############################################################
-# environment 
+# environment
 ############################################################
 
 export LANG=ja_JP.UTF-8
@@ -14,7 +14,7 @@ umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
 ############################################################
-# options 
+# options
 ############################################################
 
 # ignore ^d logout
@@ -43,8 +43,8 @@ setopt list_types
 # keybind
 ############################################################
 
-# vim like keybind
-bindkey -v
+# emacs like keybind
+bindkey -e
 # historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -131,7 +131,7 @@ alias beep="afplay ~/.repos/dotfiles/Ping.aiff"
 fpath=(${HOME}/.zsh/plugins ${fpath})
 
 ############################################################
-# others 
+# others
 ############################################################
 
 # less-source-highlight
@@ -147,7 +147,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # z
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 
-# prompt 
+# prompt
 #[ -f ${HOME}/.zsh/themes/my.zsh-theme ] && source ${HOME}/.zsh/themes/my.zsh-theme
 
 ############################################################
@@ -178,10 +178,10 @@ function set-random-color-prompt() {
 
 # set prompt theme
 autoload -U promptinit && promptinit
-prompt minimum 
-#add-zsh-hook precmd set-random-color-prompt 
+prompt minimum
+#add-zsh-hook precmd set-random-color-prompt
 
-# lscolor 
+# lscolor
 case "${TERM}" in
 screen)
     TERM=xterm

@@ -8,6 +8,9 @@
 tramp
 .\#*
 
+# auto-complete-mode
+ac-comphist.dat
+
 # Org-mode
 .org-id-locations
 *_archive

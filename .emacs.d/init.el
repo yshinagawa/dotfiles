@@ -1,5 +1,8 @@
-;; cl
-(require 'cl)
+;;; init.el --- yoshiki shinagawa's init.el for GNU Emacs
+
+;;; Commentary:
+
+;;; Code:
 
 ;; global emacs style
 (setq inhibit-startup-message t)
@@ -26,6 +29,10 @@
 (setq read-file-name-completion-ignore-case t)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+
+;; cua-mode
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
 
 ;; whitespace
 (setq whitespace-style '(face tabs tab-mark spaces space-mark trailing space-before-tab space-after-tab::space))
@@ -54,6 +61,24 @@
 ;; magit
 (require 'magit)
 
+;; auto-complete
+(when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20140414.2324/dict")
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+  (ac-config-default))
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode t)
+(global-set-key (kbd "M-/") 'undo-no-redo)
+
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; theme
 
 ;; elisp
@@ -65,11 +90,12 @@
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
-;; key-map
+;; general key-map
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 (define-key global-map (kbd "C-t") 'other-window)
 
-;; Emacs.app
+
+;; Cocoa Emacs
 (when window-system
   ;; global emacs style
   (menu-bar-mode t)
@@ -89,5 +115,17 @@
   ;; magit
   (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
 
+  ;; smooth-scroll
+  (require 'smooth-scroll)
+  (smooth-scroll-mode t)
+
   ;; theme
-  (load-theme 'leuven t))
+  (load-theme 'zenburn t))
+
+(provide 'init)
+
+;; Local Variables:
+;; flycheck-checker: emacs-lisp-checkdoc
+;; End:
+
+;;; init.el ends here
