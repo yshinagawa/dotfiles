@@ -4,6 +4,12 @@
 
 ;;; Code:
 
+;; package-initialize
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
 ;; global emacs style
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
@@ -12,6 +18,15 @@
 (global-linum-mode t)
 (setq linum-format "%4d ")
 (blink-cursor-mode 0)
+
+(defun my-set-xterm-title ()
+  "Set window title for xterm."
+  (xterm-set-window-title
+   (concat (buffer-name)(format " @ Emacs %s" emacs-version))))
+(when (not window-system)
+  (require 'xterm-frobs)
+  (add-hook 'window-configuration-change-hook 'my-set-xterm-title)
+  (add-hook 'emacs-startup-hook 'my-set-xterm-title))
 
 ;; global language
 (set-language-environment "Japanese")
@@ -52,11 +67,11 @@
                     :foreground "GreenYellow"
                     :weight 'bold)
 
-;; package
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(package-initialize)
+;; uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
+;; helm
 
 ;; magit
 (require 'magit)
@@ -79,8 +94,6 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; theme
-
 ;; elisp
 (defun elisp-mode-hooks()
   "lisp-mode-hooks"
@@ -90,34 +103,35 @@
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
+;; js2-mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; general key-map
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 (define-key global-map (kbd "C-t") 'other-window)
 
+;; theme
+(load-theme 'zenburn t)
 
 ;; Cocoa Emacs
 (when window-system
   ;; global emacs style
-  (menu-bar-mode t)
+  (menu-bar-mode 1)
   (scroll-bar-mode 0)
   (fringe-mode 0)
   (add-to-list 'default-frame-alist '(height . 48))
   (add-to-list 'default-frame-alist '(width . 108))
-  (setq frame-title-format (format "%%b @ Emacs %s" emacs-version))
   (set-face-attribute 'default nil
                      :family "Source Code Pro"
                      :height 130)
   (set-fontset-font nil 'japanese-jisx0208
                     (font-spec :family "Hiragino Maru Gothic Pro"))
   (global-hl-line-mode t)
+  (setq frame-title-format (format "%%b @ Emacs %s" emacs-version))
   (setq ring-bell-function 'ignore)
 
   ;; magit
   (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
-
-  ;; smooth-scroll
-  (require 'smooth-scroll)
-  (smooth-scroll-mode t)
 
   ;; theme
   (load-theme 'zenburn t))
