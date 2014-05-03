@@ -72,6 +72,16 @@
 (setq uniquify-buffer-name-style 'post-forward)
 
 ;; helm
+(require 'helm-config)
+(require 'helm-ag)
+(require 'helm-descbinds)
+(helm-descbinds-mode)
+(global-set-key (kbd "C-;") 'helm-mini)
+(global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "C-c b") 'helm-descbinds)
+(global-set-key (kbd "C-c o") 'helm-occur)
+(global-set-key (kbd "C-c s") 'helm-ag)
+(global-set-key (kbd "C-c y") 'helm-show-kill-ring)
 
 ;; magit
 (require 'magit)
@@ -94,12 +104,16 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; rainbow-delimiters
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 ;; elisp
 (defun elisp-mode-hooks()
-  "lisp-mode-hooks"
+  "Lisp mode hooks."
   (when (require 'eldoc nil t)
     (setq eldoc-idle-delay 0.2)
-    (setq eldoc-echo-area-use-nultiline-p t)
+    (setq eldoc-echo-area-use-multiline-p t)
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
