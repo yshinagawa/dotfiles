@@ -19,14 +19,14 @@
 (setq linum-format "%4d ")
 (blink-cursor-mode 0)
 
-(defun my-set-xterm-title ()
+(defun set-xterm-title ()
   "Set window title for xterm."
   (xterm-set-window-title
    (concat (buffer-name)(format " @ Emacs %s" emacs-version))))
 (when (not window-system)
   (require 'xterm-frobs)
-  (add-hook 'window-configuration-change-hook 'my-set-xterm-title)
-  (add-hook 'emacs-startup-hook 'my-set-xterm-title))
+  (add-hook 'window-configuration-change-hook 'set-xterm-title)
+  (add-hook 'emacs-startup-hook 'set-xterm-title))
 
 ;; global language
 (set-language-environment "Japanese")
@@ -66,6 +66,9 @@
 (set-face-attribute 'whitespace-space nil
                     :foreground "GreenYellow"
                     :weight 'bold)
+
+;; exec-path-from-shell
+(exec-path-from-shell-initialize)
 
 ;; uniquify
 (require 'uniquify)
@@ -108,6 +111,15 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+;; w3m
+(setq browse-url-browser-function 'w3m-goto-url-new-session)
+(setq w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.")
+(defun hn ()
+  "Go to Hacker News."
+  (interactive)
+  (browse-url "http://news.ycombinator.com"))
+
+
 ;; elisp
 (defun elisp-mode-hooks()
   "Lisp mode hooks."
@@ -123,6 +135,8 @@
 ;; general key-map
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 (define-key global-map (kbd "C-t") 'other-window)
+(define-key global-map (kbd "s-0") 'delete-window)
+(define-key global-map (kbd "s-1") 'delete-other-windows)
 
 ;; theme
 (load-theme 'zenburn t)
@@ -149,6 +163,21 @@
 
   ;; theme
   (load-theme 'zenburn t))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
+ '(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wigh t bold))))
+ '(w3m-image-anchor ((t (:background "dark green")))))
 
 (provide 'init)
 
