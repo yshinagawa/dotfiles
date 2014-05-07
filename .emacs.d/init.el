@@ -95,8 +95,6 @@
   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (ac-config-default))
 
-;; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; undo-tree
 (require 'undo-tree)
@@ -119,7 +117,6 @@
   (interactive)
   (browse-url "http://news.ycombinator.com"))
 
-
 ;; elisp
 (defun elisp-mode-hooks()
   "Lisp mode hooks."
@@ -129,8 +126,33 @@
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
+;; ruby
+(require 'ruby-electric)
+(add-hook 'enh-ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+(require 'rubocop)
+(add-hook 'enh-ruby-mode-hook 'rubocop-mode)
+
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; flycheck
+;(add-hook 'after-init-hook #'global-flycheck-mode)
+(require 'flycheck)
+(add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
+(add-hook 'enh-ruby-mode-hook 'flycheck-mode)
+(flycheck-define-checker ruby-rubocop
+  "A Ruby syntax and style checker using the RuboCop tool."
+  :command ("rubocop" "--format" "emacs" "--silent"
+            (config-file "--config" flycheck-rubocoprc)
+            source)
+  :error-patterns
+  ((warning line-start
+            (file-name) ":" line ":" column ": " (or "C" "W") ": " (message)
+            line-end)
+   (error line-start
+          (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
+          line-end))
+  :modes (enh-ruby-mode))
 
 ;; general key-map
 (define-key global-map (kbd "C-m") 'newline-and-indent)
