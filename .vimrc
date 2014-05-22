@@ -62,7 +62,6 @@ autocmd ColorScheme * highlight StatusLine cterm=none ctermfg=255 ctermbg=232
 autocmd ColorScheme * highlight StatusLineNC cterm=none ctermfg=243 ctermbg=232
 autocmd ColorScheme * highlight CursorLine ctermbg=232
 autocmd ColorScheme * highlight Normal ctermbg=none
-colorscheme hybrid
 
 filetype plugin indent on
 augroup cch
