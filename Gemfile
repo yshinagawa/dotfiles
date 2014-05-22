@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "pry"
 gem "pry-coolline"
-gem "pry-debugger"
+gem "pry-byebug"
 gem "pry-doc"
 gem "awesome_print"
 gem "sass"
