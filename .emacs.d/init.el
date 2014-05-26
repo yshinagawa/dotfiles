@@ -15,9 +15,11 @@
 (setq initial-scratch-message "")
 (tool-bar-mode 0)
 (menu-bar-mode 0)
-(global-linum-mode t)
-(setq linum-format "%4d ")
+;(global-linum-mode t)
+;(setq linum-format "%4d ")
 (blink-cursor-mode 0)
+(line-number-mode t)
+(column-number-mode t)
 
 (defun set-xterm-title ()
   "Set window title for xterm."
@@ -39,6 +41,8 @@
 ;; global edit style
 (show-paren-mode t)
 (electric-pair-mode t)
+(electric-indent-mode t)
+(electric-layout-mode t)
 (global-font-lock-mode t)
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
@@ -74,6 +78,15 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
+;; anzu
+(global-anzu-mode +1)
+(setq anzu-mode-lighter "")
+(setq anzu-deactivate-region t)
+(setq anzu-search-threhold 1000)
+(setq anzu-replace-to-string-separator " => ")
+(set-face-attribute 'anzu-mode-line nil
+                    :foreground "#F0DFAF" :weight 'bold)
+
 ;; helm
 (require 'helm-config)
 (require 'helm-ag)
@@ -94,7 +107,6 @@
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20140414.2324/dict")
   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (ac-config-default))
-
 
 ;; undo-tree
 (require 'undo-tree)
@@ -127,19 +139,16 @@
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
 ;; ruby
-(require 'ruby-electric)
-(add-hook 'enh-ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 (require 'rubocop)
-(add-hook 'enh-ruby-mode-hook 'rubocop-mode)
+(add-hook 'ruby-mode-hook 'rubocop-mode)
 
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; flycheck
-;(add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck)
 (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
-(add-hook 'enh-ruby-mode-hook 'flycheck-mode)
+;(add-hook 'ruby-mode-hook 'flycheck-mode)
 (flycheck-define-checker ruby-rubocop
   "A Ruby syntax and style checker using the RuboCop tool."
   :command ("rubocop" "--format" "emacs" "--silent"
@@ -152,7 +161,7 @@
    (error line-start
           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
           line-end))
-  :modes (enh-ruby-mode))
+  :modes (ruby-mode))
 (flycheck-define-checker ruby-rubylint
   "A Ruby syntax and style checker using the rubylint tool."
   :command ("ruby-lint" source)
@@ -163,7 +172,7 @@
    (error line-start
           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
           line-end))
-  :modes (enh-ruby-mode))
+  :modes (ruby-mode))
 
 ;; general key-map
 (define-key global-map (kbd "C-m") 'newline-and-indent)
@@ -172,7 +181,8 @@
 (define-key global-map (kbd "s-1") 'delete-other-windows)
 
 ;; theme
-(load-theme 'zenburn t)
+(when (not window-system)
+  (load-theme 'zenburn t))
 
 ;; Cocoa Emacs
 (when window-system
@@ -187,7 +197,7 @@
                       :height 130)
   (set-fontset-font nil 'japanese-jisx0208
                     (font-spec :family "Hiragino Maru Gothic Pro"))
-  (global-hl-line-mode t)
+  ;(global-hl-line-mode t)
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))
