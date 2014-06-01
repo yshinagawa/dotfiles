@@ -124,6 +124,7 @@ alias su="su -l"
 alias vr="vim -R"
 alias vi="vim -u NONE --noplugin"
 alias beep="afplay ~/.repos/dotfiles/Ping.aiff"
+alias rm="rmtrash"
 
 ############################################################
 # plugins
