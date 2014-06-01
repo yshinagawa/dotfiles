@@ -40,7 +40,7 @@
 
 ;; global edit style
 (show-paren-mode t)
-(electric-pair-mode t)
+;(electric-pair-mode t)
 (electric-indent-mode t)
 (electric-layout-mode t)
 (global-font-lock-mode t)
@@ -73,6 +73,10 @@
 
 ;; exec-path-from-shell
 (exec-path-from-shell-initialize)
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode)
 
 ;; uniquify
 (require 'uniquify)
@@ -141,6 +145,7 @@
 ;; ruby
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
