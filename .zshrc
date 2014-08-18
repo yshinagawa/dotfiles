@@ -13,6 +13,9 @@ export RSYNC_RSH=ssh
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
+# docker
+export DOCKER_HOST=tcp://192.168.59.103:2375
+
 ############################################################
 # options
 ############################################################
@@ -74,7 +77,8 @@ function history-all { history -E 1 }
 ############################################################
 
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions ${fpath})
+fpath=(/usr/local/etc/bash_completion.d ${fpath})
 autoload -U compinit
 compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
