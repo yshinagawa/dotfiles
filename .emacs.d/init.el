@@ -94,8 +94,6 @@
 (setq anzu-deactivate-region t)
 (setq anzu-search-threhold 1000)
 (setq anzu-replace-to-string-separator " => ")
-(set-face-attribute 'anzu-mode-line nil
-                    :foreground "black" :weight 'bold)
 
 ;; helm
 (require 'helm-config)
@@ -219,11 +217,7 @@
   (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
 
   ;; theme
-  (load-theme 'espresso t)
-  ;; fix theme for espresso
-  (set-face-italic-p 'font-lock-comment-face t)
-  (set-face-attribute 'isearch nil
-                      :foreground "black"))
+  (load-theme 'espresso t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -236,9 +230,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
- '(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wigh t bold))))
- '(w3m-image-anchor ((t (:background "dark green")))))
+ '(anzu-mode-line ((t :foreground "black" :weight bold)))
+ '(isearch ((t (:foreground "black"))))
+ '(font-lock-comment-face ((t (:slant italic))))
+ ;'(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
+ ;'(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wight bold))))
+ ;'(w3m-image-anchor ((t (:background "dark green")))))
 
 (provide 'init)
 
