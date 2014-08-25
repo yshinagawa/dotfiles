@@ -49,6 +49,12 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
+;; placing all files in one directory
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; cua-mode
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
@@ -89,7 +95,7 @@
 (setq anzu-search-threhold 1000)
 (setq anzu-replace-to-string-separator " => ")
 (set-face-attribute 'anzu-mode-line nil
-                    :foreground "#F0DFAF" :weight 'bold)
+                    :foreground "black" :weight 'bold)
 
 ;; helm
 (require 'helm-config)
@@ -196,7 +202,7 @@
   (scroll-bar-mode 0)
   (fringe-mode 0)
   (add-to-list 'default-frame-alist '(height . 48))
-  (add-to-list 'default-frame-alist '(width . 108))
+  (add-to-list 'default-frame-alist '(width . 95))
   (set-face-attribute 'default nil
                       :family "Source Code Pro"
                       :height 130)
@@ -213,7 +219,11 @@
   (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
 
   ;; theme
-  (load-theme 'zenburn t))
+  (load-theme 'espresso t)
+  ;; fix theme for espresso
+  (set-face-italic-p 'font-lock-comment-face t)
+  (set-face-attribute 'isearch nil
+                      :foreground "black"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
