@@ -13,7 +13,7 @@ export RSYNC_RSH=ssh
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
-# docker
+# boot2docker
 export DOCKER_HOST=tcp://192.168.59.103:2375
 
 ############################################################

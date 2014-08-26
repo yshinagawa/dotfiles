@@ -16,7 +16,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 ;(global-linum-mode t)
-;(setq linum-format "%4d ")
+(setq linum-format "%4d ")
 (blink-cursor-mode 0)
 (line-number-mode t)
 (column-number-mode t)
@@ -127,7 +127,8 @@
 
 ;; rainbow-delimiters
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; w3m
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
@@ -217,7 +218,7 @@
   (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
 
   ;; theme
-  (load-theme 'espresso t))
+  (load-theme 'zenburn t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -230,12 +231,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(anzu-mode-line ((t :foreground "black" :weight bold)))
- '(isearch ((t (:foreground "black"))))
+ '(anzu-mode-line ((t :foreground "#8FB28F")))
+ '(isearch ((t (:background "#2B2B2B" :foreground "#F0DFAF"))))
  '(font-lock-comment-face ((t (:slant italic))))
- ;'(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
- ;'(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wight bold))))
- ;'(w3m-image-anchor ((t (:background "dark green")))))
+ '(show-paren-match ((t (:weight normal))))
+ '(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
+ '(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wight bold))))
+ '(w3m-image-anchor ((t (:background "dark green"))))
+ )
 
 (provide 'init)
 
