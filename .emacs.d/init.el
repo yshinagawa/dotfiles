@@ -10,6 +10,11 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; init-loader
+(require 'init-loader)
+(setq init-loader-show-log-after-init nil)
+(init-loader-load "~/.emacs.d/site-lisp")
+
 ;; global emacs style
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
@@ -94,6 +99,8 @@
 (setq anzu-deactivate-region t)
 (setq anzu-search-threhold 1000)
 (setq anzu-replace-to-string-separator " => ")
+(global-set-key (kbd "C-c %") 'anzu-query-replace)
+(global-set-key (kbd "C-c r") 'anzu-query-replace-regexp)
 
 ;; helm
 (require 'helm-config)
@@ -231,8 +238,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
+ ; customize for zenburn theme
  '(anzu-mode-line ((t :foreground "#8FB28F")))
  '(isearch ((t (:background "#2B2B2B" :foreground "#F0DFAF"))))
+ '(default ((t (:foreground "#F6F3E8"))))
  '(font-lock-comment-face ((t (:slant italic))))
  '(show-paren-match ((t (:weight normal))))
  '(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
