@@ -137,6 +137,10 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+;; quickrun
+(require 'quickrun)
+(global-set-key (kbd "<f5>") 'quickrun)
+
 ;; w3m
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
 (setq w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.")
@@ -165,6 +169,11 @@
 (setq js2-highlight-level 3)
 (add-hook 'js2-mode-hook (lambda () (electric-layout-mode -1)))
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
+;; coffee-mode
+(setq whitespace-action '(auto-cleanup))
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+(custom-set-variables '(coffee-tab-width 2))
 
 ;; flycheck
 (require 'flycheck)
