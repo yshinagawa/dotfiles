@@ -22,7 +22,10 @@
 (menu-bar-mode 0)
 ;(global-linum-mode t)
 (setq linum-format "%4d ")
-(blink-cursor-mode 0)
+;(blink-cursor-mode 0)
+(setq x-stretch-cursor t)
+(setq-default cursor-type '(bar . 1))
+(setq-default cursor-in-non-selected-windows nil)
 (line-number-mode t)
 (column-number-mode t)
 
@@ -210,6 +213,12 @@
 (define-key global-map (kbd "s-0") 'delete-window)
 (define-key global-map (kbd "s-1") 'delete-other-windows)
 
+;; minibuffer history key-map
+(define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
+(define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
+(define-key minibuffer-local-map (kbd "M-r") 'previous-matching-history-element)
+(define-key minibuffer-local-map (kbd "M-s") 'next-matching-history-element)
+
 ;; theme
 (when (not window-system)
   (load-theme 'zenburn t))
@@ -257,7 +266,7 @@
  '(isearch ((t (:background "#2B2B2B" :foreground "#F0DFAF"))))
  '(default ((t (:foreground "#F6F3E8"))))
  '(font-lock-comment-face ((t (:slant italic))))
- '(show-paren-match ((t (:weight normal))))
+ '(show-paren-match ((t (:weight normal :background nil :underline "#F6F3E8"))))
  '(w3m-header-line-location-title ((t (:background "gray20" :foreground "#F0DFAF" :underline t :weight bold))))
  '(w3m-header-line-location-content ((t (:background "gray20" :foreground "#F0DFAF" :underline t :wight bold))))
  '(w3m-image-anchor ((t (:background "dark green"))))
