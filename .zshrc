@@ -127,8 +127,9 @@ alias df="df -h"
 alias su="su -l"
 alias vr="vim -R"
 alias vi="vim -u NONE --noplugin"
-alias beep="afplay ~/.repos/dotfiles/Ping.aiff"
+alias beep="afplay ~/.repos/dotfiles/Temple.aiff"
 alias rm="rmtrash"
+alias sleep="gsleep"
 
 ############################################################
 # plugins

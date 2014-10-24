@@ -10,10 +10,14 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; add load-path
+(let ((default-directory "~/.emacs.d/site-lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; init-loader
-(require 'init-loader)
-(setq init-loader-show-log-after-init nil)
-(init-loader-load "~/.emacs.d/site-lisp")
+;(require 'init-loader)
+;(setq init-loader-show-log-after-init nil)
+;(init-loader-load "~/.emacs.d/init")
 
 ;; global emacs style
 (setq inhibit-startup-message t)
@@ -57,7 +61,11 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
-;; placing all files in one directory
+;; abbrev-mode
+(setq save-abbrevs nil)
+(setq-default abbrev-mode t)
+
+;; placing all backup files in one directory
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
@@ -87,6 +95,10 @@
 
 ;; exec-path-from-shell
 (exec-path-from-shell-initialize)
+
+
+;; dirtree
+(require 'dirtree)
 
 ;; autopair
 (require 'autopair)
@@ -138,6 +150,7 @@
 ;; rainbow-delimiters
 (require 'rainbow-delimiters)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; quickrun
@@ -161,10 +174,37 @@
     (turn-on-eldoc-mode)))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
+;; slime
+(setf inferior-lisp-program "/usr/local/bin/sbcl")
+(require 'slime-autoloads)
+(slime-setup '(slime-repl slime-fancy slime-banner slime-indentation))
+(setq slime-net-coding-system 'utf-8-unix)
+
+;; ac-slime
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
+(push '("*slime-apropos*") popwin:special-display-config)
+(push '("*slime-macroexpansion*") popwin:special-display-config)
+(push '("*slime-description*") popwin:special-display-config)
+(push '("*slime-compilation*" :noselect t) popwin:special-display-config)
+(push '("*slime-xref*") popwin:special-display-config)
+(push '(sldb-mode :stick t) popwin:special-display-config)
+(push '(slime-repl-mode) popwin:special-display-config)
+(push '(slime-connection-list-mode) popwin:special-display-config)
+
 ;; ruby
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'ac-robe-setup)
 
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
