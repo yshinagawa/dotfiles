@@ -186,6 +186,9 @@ function set-random-color-prompt() {
 # set prompt theme
 autoload -U promptinit && promptinit
 prompt minimum
+# include zsh-syntax-highligting
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 #add-zsh-hook precmd set-random-color-prompt
 
 # lscolor
