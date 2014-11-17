@@ -24,7 +24,7 @@
 (setq initial-scratch-message "")
 (tool-bar-mode 0)
 (menu-bar-mode 0)
-;(global-linum-mode t)
+(global-linum-mode t)
 (setq linum-format "%4d ")
 ;(blink-cursor-mode 0)
 (setq x-stretch-cursor t)
@@ -99,6 +99,10 @@
 
 ;; dirtree
 (require 'dirtree)
+
+;; neotree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 ;; autopair
 (require 'autopair)
@@ -200,11 +204,23 @@
 (push '(slime-connection-list-mode) popwin:special-display-config)
 
 ;; ruby
+(autoload 'ruby-mode "ruby-mode"
+  "Mode for editing ruby source files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (require 'rubocop)
 (add-hook 'ruby-mode-hook 'rubocop-mode)
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
+
+;; scss
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(setq scss-compile-at-save nil)
 
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -217,6 +233,10 @@
 (setq whitespace-action '(auto-cleanup))
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 (custom-set-variables '(coffee-tab-width 2))
+
+;; web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 ;; flycheck
 (require 'flycheck)
@@ -303,6 +323,8 @@
 
  ; customize for zenburn theme
  '(anzu-mode-line ((t :foreground "#8FB28F")))
+ ;'(fringe ((t (:background "gray15"))))
+ '(vertical-border ((t (:foreground "#303030"))))
  '(isearch ((t (:background "#2B2B2B" :foreground "#F0DFAF"))))
  '(default ((t (:foreground "#F6F3E8"))))
  '(font-lock-comment-face ((t (:slant italic))))
