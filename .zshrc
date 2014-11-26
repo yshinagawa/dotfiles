@@ -129,6 +129,7 @@ alias vr="vim -R"
 alias vi="vim -u NONE --noplugin"
 alias beep="afplay ~/.repos/dotfiles/Temple.aiff"
 alias b="beep"
+alias v="vagrant"
 alias rm="rmtrash"
 alias sleep="gsleep"
 

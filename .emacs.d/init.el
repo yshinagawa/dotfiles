@@ -43,7 +43,7 @@
   (add-hook 'emacs-startup-hook 'set-xterm-title))
 
 ;; global language
-(set-language-environment "Japanese")
+;(set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 (when (eq system-type 'darwin)
   (require 'ucs-normalize)
@@ -204,6 +204,7 @@
 (push '(slime-connection-list-mode) popwin:special-display-config)
 
 ;; ruby
+(setq ruby-insert-encoding-magic-comment nil)
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
