@@ -125,6 +125,7 @@
 (require 'helm-config)
 (require 'helm-ag)
 (require 'helm-descbinds)
+(require 'helm-ls-git)
 (helm-descbinds-mode)
 (global-set-key (kbd "C-c ;") 'helm-mini)
 (global-set-key (kbd "C-c h") 'helm-mini)
@@ -132,6 +133,8 @@
 (global-set-key (kbd "C-c o") 'helm-occur)
 (global-set-key (kbd "C-c s") 'helm-ag)
 (global-set-key (kbd "C-c y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-<f6>") 'helm-ls-git-ls)
+(global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
 ;; magit
 (require 'magit)
@@ -286,6 +289,7 @@
 
 ;; Cocoa Emacs
 (when window-system
+  (server-start)
   ;; global emacs style
   (menu-bar-mode 1)
   (scroll-bar-mode 0)
@@ -305,7 +309,7 @@
   (setq ring-bell-function 'ignore)
 
   ;; magit
-  (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
+  (set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.4/bin/emacsclient")
 
   ;; theme
   (load-theme 'zenburn t))

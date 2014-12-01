@@ -8,8 +8,9 @@ case ${UID} in
   LANG=C
   ;;
 esac
-export VISUAL=vi
 export RSYNC_RSH=ssh
+export VISUAL="/usr/local/bin/emacsclient -n"
+export EDITOR="/usr/local/bin/emacsclient -n"
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
@@ -41,6 +42,37 @@ setopt mark_dirs
 setopt list_rows_first
 setopt auto_param_slash
 setopt list_types
+
+############################################################
+# alias
+############################################################
+
+# expand aliases before completing
+setopt complete_aliases
+alias where="command -v"
+case "${OSTYPE}" in
+  freebsd*|darwin*)
+        alias ls="gls --color"
+        ;;
+  linux*)
+        alias ls="ls --color"
+        ;;
+esac
+alias b="afplay ~/.repos/dotfiles/Temple.aiff"
+alias cp="cp -i"
+alias df="df -h"
+alias du="du -h"
+alias e="emacsclient -n"
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+alias mv="mv -i -v"
+alias rm="rm -i"
+alias sleep="gsleep"
+alias su="su -l"
+alias v="vagrant"
+alias vi="vim -u NONE --noplugin"
+alias vr="vim -R"
 
 ############################################################
 # keybind
@@ -103,37 +135,6 @@ bindkey '^x^p' predict-off
 autoload zed
 
 ############################################################
-# alias
-############################################################
-
-# expand aliases before completing
-setopt complete_aliases     # aliased ls needs if file/dir completions work
-alias where="command -v"
-
-case "${OSTYPE}" in
-  freebsd*|darwin*)
-        alias ls="gls --color"
-        ;;
-  linux*)
-        alias ls="ls --color"
-        ;;
-esac
-
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="ls -l"
-alias du="du -h"
-alias df="df -h"
-alias su="su -l"
-alias vr="vim -R"
-alias vi="vim -u NONE --noplugin"
-alias beep="afplay ~/.repos/dotfiles/Temple.aiff"
-alias b="beep"
-alias v="vagrant"
-alias rm="rmtrash"
-alias sleep="gsleep"
-
-############################################################
 # plugins
 ############################################################
 
@@ -150,14 +151,8 @@ export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
 # z
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
-
-# prompt
-#[ -f ${HOME}/.zsh/themes/my.zsh-theme ] && source ${HOME}/.zsh/themes/my.zsh-theme
 
 ############################################################
 # prompt
