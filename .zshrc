@@ -52,10 +52,10 @@ setopt complete_aliases
 alias where="command -v"
 case "${OSTYPE}" in
   freebsd*|darwin*)
-        alias ls="gls --color"
+        alias ls="gls -F --color"
         ;;
   linux*)
-        alias ls="ls --color"
+        alias ls="ls -F --color"
         ;;
 esac
 alias b="afplay ~/.repos/dotfiles/Temple.aiff"
@@ -63,9 +63,8 @@ alias cp="cp -i"
 alias df="df -h"
 alias du="du -h"
 alias e="emacs"
-alias la="ls -AFh"
-alias lf="ls -F"
-alias ll="ls -slhAF"
+alias la="ls -Ah"
+alias ll="ls -slhA"
 alias mv="mv -i -v"
 alias rm="rm -i"
 alias sleep="gsleep"
