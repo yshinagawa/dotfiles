@@ -14,7 +14,7 @@
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-; init-loader
+;; init-loader
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/init")
