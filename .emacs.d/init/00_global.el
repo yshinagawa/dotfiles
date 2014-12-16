@@ -1,0 +1,21 @@
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(global-linum-mode t)
+(setq linum-format "%4d ")
+;(blink-cursor-mode 0)
+(setq x-stretch-cursor t)
+(setq-default cursor-type '(bar . 1))
+(setq-default cursor-in-non-selected-windows nil)
+(line-number-mode t)
+(column-number-mode t)
+
+(defun set-xterm-title ()
+  "Set window title for xterm."
+  (xterm-set-window-title
+   (concat (buffer-name)(format " @ Emacs %s" emacs-version))))
+(when (not window-system)
+  (require 'xterm-frobs)
+  (add-hook 'window-configuration-change-hook 'set-xterm-title)
+  (add-hook 'emacs-startup-hook 'set-xterm-title))
