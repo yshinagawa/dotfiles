@@ -40,7 +40,6 @@ GEM
       parser (~> 2.1, >= 2.1.1)
       slop (~> 3.4, >= 3.4.7)
     ruby-progressbar (1.5.1)
-    sass (3.4.0)
     slop (3.6.0)
     yard (0.8.7.4)
 
@@ -56,4 +55,3 @@ DEPENDENCIES
   rubocop
   ruby-graphviz
   ruby-lint
-  sass

@@ -9,8 +9,8 @@ case ${UID} in
   ;;
 esac
 export RSYNC_RSH=ssh
-export VISUAL="/usr/local/bin/emacsclient -n"
-export EDITOR="/usr/local/bin/emacsclient -n"
+export VISUAL="/usr/local/bin/emacs"
+export EDITOR="/usr/local/bin/emacs"
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
@@ -62,7 +62,7 @@ alias b="afplay ~/.repos/dotfiles/Temple.aiff"
 alias cp="cp -i"
 alias df="df -h"
 alias du="du -h"
-alias e="emacsclient -n"
+alias e="emacs"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
