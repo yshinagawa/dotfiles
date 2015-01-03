@@ -1,5 +1,5 @@
 (require 'flycheck)
-(add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
+;(add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
 ;(add-hook 'ruby-mode-hook 'flycheck-mode)
 (flycheck-define-checker ruby-rubocop
   "A Ruby syntax and style checker using the RuboCop tool."
