@@ -147,9 +147,6 @@ fpath=(${HOME}/.zsh/plugins ${fpath})
 export LESS='-R'
 export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 # z
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 
