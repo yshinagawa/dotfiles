@@ -19,15 +19,6 @@
 (line-number-mode t)
 (column-number-mode t)
 
-(defun set-xterm-title ()
-  "Set window title for xterm."
-  (xterm-set-window-title
-   (concat (buffer-name)(format " @ Emacs %s" emacs-version))))
-(when (not window-system)
-  (require 'xterm-frobs)
-  (add-hook 'window-configuration-change-hook 'set-xterm-title)
-  (add-hook 'emacs-startup-hook 'set-xterm-title))
-
 (exec-path-from-shell-initialize)
 
 ;; uniquify
@@ -45,4 +36,3 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 ;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-

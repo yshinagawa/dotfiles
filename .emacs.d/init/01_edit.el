@@ -16,7 +16,7 @@
 ;; cua-mode
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
-
+(define-key global-map (kbd "C-x SPC") 'cua-set-rectangle-mark)
 ;; whitespace
 (setq whitespace-style '(face tabs tab-mark spaces space-mark trailing space-before-tab space-after-tab::space))
 (setq whitespace-space-regexp "\\(\x3000+\\)")
