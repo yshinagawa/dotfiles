@@ -9,6 +9,9 @@
 (electric-indent-mode t)
 (electric-layout-mode t)
 
+;; ffap
+(ffap-bindings)
+
 ;; abbrev-mode
 (setq save-abbrevs nil)
 (setq-default abbrev-mode t)
