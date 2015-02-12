@@ -58,11 +58,21 @@ case "${OSTYPE}" in
         alias ls="ls -F --color"
         ;;
 esac
+
 alias b="afplay ~/.repos/dotfiles/Temple.aiff"
+alias be='bundle exec'
 alias cp="cp -i"
 alias df="df -h"
 alias du="du -h"
 alias e="emacs"
+alias ga='git add'
+alias gc='git commit'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gdiff='git diff'
+alias gl='git lg'
+alias gp='git push'
+alias gs='git st'
 alias la="ls -Ah"
 alias ll="ls -slhA"
 alias mv="mv -i -v"
