@@ -1,8 +1,8 @@
-;; hc-zenburn
-(load-theme 'hc-zenburn t)
+;; github
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-github)
 
-;; zenburn
-;(load-theme 'zenburn t)
 ;(custom-set-faces
 ; ; customize for zenburn theme
 ; '(anzu-mode-line ((t :foreground "#8FB28F")))
@@ -12,9 +12,6 @@
 ; '(default ((t (:foreground "#F6F3E8"))))
 ; ;'(font-lock-comment-face ((t (:slant italic))))
 ; show-paren-match ((t (:weight normal :background nil :underline "#F6F3E8"))))
-
-;; leuven
-;(load-theme 'leuven t)
 
 ;; solarized-light
 ;(require 'solarized)

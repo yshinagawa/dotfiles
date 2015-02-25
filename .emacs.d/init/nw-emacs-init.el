@@ -1,6 +1,6 @@
-(custom-set-faces
- '(vertical-border ((t (:foreground "#313131"))))
- '(font-lock-fic-face ((t (:foreground "#313131" :background "#6C8C6C" :weight bold)))))
+;(custom-set-faces
+; '(vertical-border ((t (:foreground "#313131"))))
+; '(font-lock-fic-face ((t (:foreground "#313131" :background "#6C8C6C" :weight bold)))))
 
 ;; xterm-title
 ;(defun set-xterm-title ()
