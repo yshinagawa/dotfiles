@@ -80,6 +80,11 @@ alias rm="rm -i"
 alias sleep="gsleep"
 alias su="su -l"
 alias v="vagrant"
+alias vh="v halt"
+alias vu="v up"
+alias vs="v status"
+alias vg="v global-status"
+alias vp="v provision"
 alias vi="vim -u NONE --noplugin"
 alias vr="vim -R"
 
@@ -190,7 +195,7 @@ function set-random-color-prompt() {
 autoload -U promptinit && promptinit
 prompt minimum
 # include zsh-syntax-highligting
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #add-zsh-hook precmd set-random-color-prompt
 
