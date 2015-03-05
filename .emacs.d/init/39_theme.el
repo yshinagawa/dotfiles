@@ -2,7 +2,8 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-github)
-
+(set-cursor-color "#000000")
+(set-face-background 'hl-line "#ECEAFF")
 ;(custom-set-faces
 ; ; customize for zenburn theme
 ; '(anzu-mode-line ((t :foreground "#8FB28F")))

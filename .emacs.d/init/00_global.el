@@ -18,7 +18,7 @@
 (setq-default cursor-in-non-selected-windows nil)
 (line-number-mode t)
 (column-number-mode t)
-
+(global-hl-line-mode 1)
 (exec-path-from-shell-initialize)
 
 ;; uniquify
