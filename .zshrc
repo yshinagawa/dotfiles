@@ -9,8 +9,8 @@ case ${UID} in
   ;;
 esac
 export RSYNC_RSH=ssh
-export VISUAL="/usr/local/bin/emacs"
-export EDITOR="/usr/local/bin/emacs"
+export VISUAL="/usr/bin/vim"
+export EDITOR="/usr/bin/vim"
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
