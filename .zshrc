@@ -73,6 +73,7 @@ alias gdiff='git diff'
 alias gl='git lg'
 alias gp='git push'
 alias gs='git st'
+alias hb='brew'
 alias la="ls -Ah"
 alias ll="ls -slhA"
 alias mv="mv -i -v"
