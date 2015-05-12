@@ -12,7 +12,7 @@
   (set-fontset-font nil 'japanese-jisx0208
                     (font-spec :family "Hiragino Maru Gothic Pro"))
   (setq-default line-spacing 0.2)
-  (set-cursor-color "#000000")
+  ;(set-cursor-color "#000000")
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))
