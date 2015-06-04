@@ -1,14 +1,19 @@
-;; tango-dark
-(load-theme 'tango-dark t)
-(set-cursor-color "#ffffff")
 (custom-set-faces
- '(default ((t (:background "grey7"))))
- '(font-lock-comment-face ((t (:slant italic :foreground "grey70"))))
- '(anzu-mode-line ((t :foreground inherit)))
- '(show-paren-match ((t (:weight normal :background nil :underline "white")))))
+ '(show-paren-match ((t (:weight normal :backgoround nil :underline "white")))))
+
+(load-theme 'brin t)
+
+;; tango-dark
+;(load-theme 'tango-dark t)
+;(set-cursor-color "#ffffff")
+;(custom-set-faces
+; '(default ((t (:background "grey7"))))
+; '(font-lock-comment-face ((t (:slant italic :foreground "grey70"))))
+; '(anzu-mode-line ((t :foreground "#2e3436")))
+; '(show-paren-match ((t (:weight normal :background nil :underline "white")))))
 
 ;; zenburn
-;(load-theme 'hc-zenburn)
+;(load-theme 'hc-zenburn t)
 ;(custom-set-faces
 ; '(anzu-mode-line ((t :foreground "#8FB28F")))
 ; ;'(fringe ((t (:background "gray15"))))
