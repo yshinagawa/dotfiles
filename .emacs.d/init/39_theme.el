@@ -1,5 +1,5 @@
 (custom-set-faces
- '(show-paren-match ((t (:weight normal :backgoround nil :underline "white")))))
+ '(show-paren-match ((t (:weight normal :foreground "yellow")))))
 
 (load-theme 'brin t)
 
