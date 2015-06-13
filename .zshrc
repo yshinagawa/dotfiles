@@ -61,6 +61,7 @@ esac
 
 alias b="afplay ~/.repos/dotfiles/Temple.aiff"
 alias be='bundle exec'
+alias ber='bundle exec rails'
 alias cp="cp -i"
 alias df="df -h"
 alias du="du -h"
