@@ -1,6 +1,6 @@
 (custom-set-faces
  '(show-paren-match ((t (:weight normal :foreground "yellow")))))
-(load-theme 'brin t)
+(load-theme 'atom-one-dark t)
 
 ;; tango-dark
 ;(load-theme 'tango-dark t)
