@@ -27,3 +27,6 @@
           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
           line-end))
   :modes (ruby-mode))
+
+(custom-set-variables
+ '(flycheck-html-tidy-executable "/usr/local/bin/tidy5"))
