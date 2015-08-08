@@ -7,3 +7,14 @@
 (setq whitespace-action '(auto-cleanup))
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 (custom-set-variables '(coffee-tab-width 2))
+
+(require 'typescript-mode)
+(add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))
+(require 'tide)
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (flycheck-mode t)
+            (setq flycheck-check-syntax-automatically '(save mode-enabled))
+            (eldoc-mode t)
+            (company-mode-on)))
