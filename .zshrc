@@ -10,7 +10,7 @@ case ${UID} in
 esac
 export RSYNC_RSH=ssh
 export VISUAL="/usr/bin/vim"
-export EDITOR="/usr/bin/vim"
+export EDITOR="emacsclient -t"
 umask 002
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>''})]'
 
@@ -65,7 +65,7 @@ alias ber='bundle exec rails'
 alias cp="cp -i"
 alias df="df -h"
 alias du="du -h"
-alias e="open -a /Applications/Emacs.app/Contents/MacOS/Emacs $1"
+alias e="emacsclient -t"
 alias ga='git add'
 alias gc='git commit'
 alias gco='git checkout'
