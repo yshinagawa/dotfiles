@@ -20,6 +20,8 @@
 (column-number-mode t)
 (global-hl-line-mode 0)
 (exec-path-from-shell-initialize)
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
 
 ;; uniquify
 (require 'uniquify)
