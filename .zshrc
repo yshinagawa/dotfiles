@@ -161,11 +161,11 @@ fpath=(${HOME}/.zsh/plugins ${fpath})
 ############################################################
 
 # less-source-highlight
-export LESS='-R'
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+# export LESS='-R'
+# export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 # z
-[[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
+#[[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 
 ############################################################
 # prompt
