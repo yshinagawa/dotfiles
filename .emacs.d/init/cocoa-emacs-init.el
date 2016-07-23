@@ -7,10 +7,10 @@
   (add-to-list 'default-frame-alist '(height . 48))
   (add-to-list 'default-frame-alist '(width . 95))
   (set-face-attribute 'default nil
-                      :family "Ricty Discord"
+                      :family "Ricty Diminished Discord"
                       :height 140)
-  (set-fontset-font nil 'japanese-jisx0208
-                    (font-spec :family "Hiragino Maru Gothic Pro"))
+  ;(set-fontset-font nil 'japanese-jisx0208
+  ;                 (font-spec :family "Hiragino Maru Gothic Pro"))
   (setq-default line-spacing 0.2)
   (setq frame-title-format "Emacs")
   ;(setq frame-title-format
