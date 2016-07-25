@@ -127,6 +127,7 @@ function history-all { history -E 1 }
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 fpath=(/usr/local/share/zsh-completions ${fpath})
 fpath=(/usr/local/etc/bash_completion.d ${fpath})
+fpath=(/usr/local/share/zsh/site-functions ${fpath})
 autoload -U compinit
 compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -202,36 +203,36 @@ prompt minimum
 #add-zsh-hook precmd set-random-color-prompt
 
 # lscolor
-case "${TERM}" in
-screen)
-    TERM=xterm
-    ;;
-esac
-
-case "${TERM}" in
-  xterm|xterm-color|xterm-256color)
-      export LSCOLORS=exfxcxdxbxegedabagacad
-      export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
-      zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-      ;;
-  kterm-color)
-      stty erase '^H'
-      export LSCOLORS=exfxcxdxbxegedabagacad
-      export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-      zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-      ;;
-  kterm)
-      stty erase '^H'
-      ;;
-  cons25)
-      unset LANG
-      export LSCOLORS=ExFxCxdxBxegedabagacad
-      export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-      zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-      ;;
-  jfbterm-color)
-      export LSCOLORS=gxFxCxdxBxegedabagacad
-      export LS_COLORS='di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-      zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-      ;;
-esac
+#case "${TERM}" in
+#screen)
+#    TERM=xterm
+#    ;;
+#esac
+#
+#case "${TERM}" in
+#  xterm|xterm-color|xterm-256color)
+#      export LSCOLORS=exfxcxdxbxegedabagacad
+#      export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
+#      zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#      ;;
+#  kterm-color)
+#      stty erase '^H'
+#      export LSCOLORS=exfxcxdxbxegedabagacad
+#      export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#      zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+#      ;;
+#  kterm)
+#      stty erase '^H'
+#      ;;
+#  cons25)
+#      unset LANG
+#      export LSCOLORS=ExFxCxdxBxegedabagacad
+#      export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#      zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+#      ;;
+#  jfbterm-color)
+#      export LSCOLORS=gxFxCxdxBxegedabagacad
+#      export LS_COLORS='di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#      zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+#      ;;
+#esac
