@@ -20,7 +20,11 @@
 
 ;; robe
 (add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+;(add-hook 'robe-mode-hook 'ac-robe-setup)
+
+;; company
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
 
 ;; rspec
 (require 'rspec-mode)
