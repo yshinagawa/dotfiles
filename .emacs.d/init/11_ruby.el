@@ -1,7 +1,7 @@
 ;; rbenv
-(setq rbenv-show-active-ruby-in-modeline nil)
-(require 'rbenv)
-(global-rbenv-mode)
+;(setq rbenv-show-active-ruby-in-modeline nil)
+;(require 'rbenv)
+;(global-rbenv-mode)
 
 ;; ruby
 (setq ruby-insert-encoding-magic-comment nil)
