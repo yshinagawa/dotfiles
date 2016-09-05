@@ -53,7 +53,7 @@ setopt complete_aliases
 alias where="command -v"
 case "${OSTYPE}" in
   freebsd*|darwin*)
-        alias ls="gls -F"
+        alias ls="gls -F --color"
         ;;
   linux*)
         alias ls="ls -F --color"
