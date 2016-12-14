@@ -12,9 +12,9 @@ prompt_git_dirty() {
 
 prompt_precmd() {
   vcs_info
-  local prompt_title='%3c$vcs_info_msg_0_`prompt_git_dirty`$prompt_username'
+  local prompt_title='[%3c$vcs_info_msg_0_`prompt_git_dirty`$prompt_username]$%f '
   # prompt turns red if the previous command didn't exit with 0
-  PROMPT="%(?..%F{1})[${prompt_title}]$%f "
+  PROMPT="%(?..%F{red})${prompt_title}"
 }
 
 prompt_minimum_setup() {
