@@ -34,6 +34,7 @@ ac-comphist.dat
 url/
 site-lisp/
 var/
+.emacs.d/history
 
 # Org-mode
 .org-id-locations
