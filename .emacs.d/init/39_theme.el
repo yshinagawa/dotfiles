@@ -1,7 +1,8 @@
-(custom-set-faces
- '(show-paren-match ((t (:weight normal :foreground "yellow")))))
+;(custom-set-faces
+; '(show-paren-match ((t (:weight normal :foreground "yellow")))))
 (load-theme 'atom-dark t)
-
+(custom-set-faces
+ '(font-lock-comment-face ((t (:slant italic)))))
 ;; tango-dark
 ;(load-theme 'tango-dark t)
 ;(set-cursor-color "#ffffff")
