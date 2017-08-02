@@ -11,6 +11,9 @@ GEM
     columnize (0.9.0)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
+    debase (0.2.1)
+      debase-ruby_core_source
+    debase-ruby_core_source (0.9.9)
     method_source (0.8.2)
     parser (2.2.2.5)
       ast (>= 1.1, < 3.0)
@@ -28,12 +31,15 @@ GEM
       pry (~> 0.9)
       yard (~> 0.8)
     rainbow (2.0.0)
+    rake (12.0.0)
     rubocop (0.31.0)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
+    ruby-debug-ide (0.6.0)
+      rake (>= 0.8.1)
     ruby-lint (2.0.4)
       parser (~> 2.2)
       slop (~> 3.4, >= 3.4.7)
@@ -47,11 +53,13 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  debase
   pry
   pry-byebug
   pry-coolline
   pry-doc
   rubocop
+  ruby-debug-ide
   ruby-lint
 
 BUNDLED WITH
