@@ -12,3 +12,5 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/init")
+
+(setq custom-file (locate-user-emacs-file "custom.el"))
