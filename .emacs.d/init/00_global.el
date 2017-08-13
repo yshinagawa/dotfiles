@@ -22,7 +22,10 @@
 (exec-path-from-shell-initialize)
 (setq default-directory "~/")
 (setq command-line-default-directory "~/")
-
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
