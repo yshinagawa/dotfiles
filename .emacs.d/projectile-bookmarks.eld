@@ -1,0 +1,1 @@
+("~/.repos/dotfiles/" "~/Documents/GitHub/redux-by-sample/" "~/Documents/GitHub/mastodon/" "~/Documents/GitHub/rubygems.org/" "~/Desktop/workspace/sample_app/")

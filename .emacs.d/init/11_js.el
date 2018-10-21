@@ -1,4 +1,4 @@
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 (setq js2-basic-offset 2)
 (setq js2-highlight-level 3)
 (add-hook 'js2-mode-hook (lambda () (electric-layout-mode -1)))
@@ -9,7 +9,7 @@
 (custom-set-variables '(coffee-tab-width 2))
 
 (require 'typescript-mode)
-(add-to-list 'auto-mode-alist '("\\.ts$" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts?x$" . typescript-mode))
 (require 'tide)
 (add-hook 'typescript-mode-hook
           (lambda ()
