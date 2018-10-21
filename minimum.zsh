@@ -12,9 +12,15 @@ prompt_git_dirty() {
 
 prompt_precmd() {
   vcs_info
-  local prompt_title='[%3c$vcs_info_msg_0_`prompt_git_dirty`$prompt_username]$%f '
-  # prompt turns red if the previous command didn't exit with 0
-  PROMPT="%(?..%F{red})${prompt_title}"
+  local prompt_sign="%(?.$.!)"
+  local prompt_title="[%3c$vcs_info_msg_0_`prompt_git_dirty`$prompt_username]$prompt_sign%f "
+  # prompt turns yellow if the previous command didn't exit with 0
+  # PROMPT="%(?..%F{yellow})${prompt_title}"
+  PROMPT="$prompt_title"
+}
+
+title_precmd() {
+  echo -ne "\033]0;\007"
 }
 
 prompt_minimum_setup() {
@@ -24,6 +30,7 @@ prompt_minimum_setup() {
     autoload -Uz vcs_info
 
     add-zsh-hook precmd prompt_precmd
+    add-zsh-hook precmd title_precmd
 
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:git*' formats ':%b'
