@@ -56,7 +56,7 @@ case "${OSTYPE}" in
         ;;
 esac
 
-alias b="afplay ~/.repos/dotfiles/Temple.aiff"
+alias b="afplay ~/Dropbox/Repos/dotfiles/Temple.aiff"
 alias be='bundle exec'
 alias ber='bundle exec rails'
 alias cp="cp -i"
