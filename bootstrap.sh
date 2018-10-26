@@ -16,11 +16,12 @@ files=('.bash_profile' \
 		'.pryrc' \
 		'.vimrc');
 
-ln -fs ${files[@]} ~/;
-printf "Symlink these files to ${HOME}\n";
-printf '  %s\n' "${files[@]}";
+for file in "${files[@]}"; do
+	[ -r "$file" ] && [ -f "$file" ] && ln -fhsv "$(pwd)/$file" "$HOME";
+done;
 
-source ~/.bash_profile;
-printf "\ndone!"
+source "$HOME/.bash_profile";
+printf "\ndone!";
 
+unset file;
 unset files;
