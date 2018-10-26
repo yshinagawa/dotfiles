@@ -4,9 +4,12 @@ cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
 
-files=('.bash_profile' \
+files=('.aliases' \
+		'.bash_profile' \
 		'.bash_prompt' \
 		'.bashrc' \
+		'.exports' \
+		'.functions' \
 		'.gemrc' \
 		'.gitconfig' \
 		'.global_ignore' \
