@@ -15,6 +15,7 @@ files=('.aliases' \
 		'.global_ignore' \
 		'.inputrc' \
 		'.irbrc' \
+		'.liquidpromptrc' \
 		'.pryrc' \
 		'.vimrc');
 
