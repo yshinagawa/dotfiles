@@ -13,6 +13,7 @@ files=('.aliases' \
 		'.gemrc' \
 		'.gitconfig' \
 		'.global_ignore' \
+		'.hushlogin' \
 		'.inputrc' \
 		'.irbrc' \
 		'.liquidpromptrc' \
