@@ -40,3 +40,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Set up pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Set up iTerm2 shell integration
+[ -e "${HOME}/.iterm2_shell_integration.bash" ] && source "${HOME}/.iterm2_shell_integration.bash"
