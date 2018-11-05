@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 # Set up liquidprompt
-if [ -f "$(brew --prefix)/share/liquidprompt" ]; then
-	source "$(brew --prefix)/share/liquidprompt"
+if [ -f "$HOME/.dotfiles/liquidprompt/liquidprompt" ]; then
+	source "$HOME/.dotfiles/liquidprompt/liquidprompt";
 fi;
