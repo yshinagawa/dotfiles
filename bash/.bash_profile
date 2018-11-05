@@ -1,5 +1,5 @@
 # Load the shell dotfiles
-for file in ~/.{aliases,bash_prompt,exports,functions}; do
+for file in ~/.dotfiles/bash/ext/*: do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
