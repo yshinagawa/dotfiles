@@ -24,19 +24,23 @@ usage:
 	$(BOLD)TARGET$(RESET)$(CRLF)\
 		help		Display this message.$(CRLF)\
 		$(CRLF)\
-		install		Install some necessary Unix tools for Ubuntu.$(CRLF)\
+		install		Install all configurations and some necessary Unix tools.$(CRLF)\
 		$(CRLF)\
-		link		Symlink dotfiles to the home directory.$(CRLF)\
+		link		Symlink configurations to the home directory.$(CRLF)\
+		$(CRLF)\
+		unlink		Remove symlinks created by \`make link\`.$(CRLF)\
 	$(CRLF)\
 	"
 
-.PHONY: linux link
+.PHONY: linux link unlink
 
 linux: apt git-init stow
 
 link: stow
 
-.PHONY: apt git-init stow
+unlink: unstow
+
+.PHONY: apt git-init stow unstow
 
 apt:
 	bash $(DOTFILES_DIR)/linux/apt.sh
@@ -46,7 +50,13 @@ git-init:
 	git submodule update
 
 stow:
-	stow bash
-	stow git
-	stow ruby
-	stow vim
+	stow -vv bash
+	stow -vv git
+	stow -vv ruby
+	stow -vv vim
+
+unstow:
+	stow -D -vv bash
+	stow -D -vv git
+	stow -D -vv ruby
+	stow -D -vv vim
