@@ -1,3 +1,8 @@
+" Initialize pathogen.vim
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 " Don't try to be vi compatible
 set nocompatible
 
