@@ -1,8 +1,3 @@
-" Initialize pathogen.vim
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
-
 " Don't try to be vi compatible
 set nocompatible
 
@@ -10,6 +5,8 @@ set nocompatible
 filetype off
 
 " TODO: Load plugins here (pathogen or vundle)
+" Initialize pathogen.vim
+execute pathogen#infect()
 
 " Turn on syntax highlighting
 syntax on
@@ -96,10 +93,8 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-" set t_Co=256
-" set background=dark
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
