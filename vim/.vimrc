@@ -93,8 +93,6 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set t_Co=256
+syntax enable
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
 colorscheme solarized
