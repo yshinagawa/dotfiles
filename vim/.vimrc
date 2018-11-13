@@ -92,6 +92,10 @@ set listchars=tab:▸\ ,eol:¬
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
+" fzf
+set rtp+=/usr/local/opt/fzf
+source /usr/local/opt/fzf/plugin/fzf.vim
+
 " NERDTree
 let NERDTreeShowHidden=1
 
