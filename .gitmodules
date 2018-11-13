@@ -13,3 +13,6 @@
 [submodule "vim/.vim/bundle/nerdtree"]
 	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.vim/bundle/vim-polyglot"]
+	path = vim/.vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
