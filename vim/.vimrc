@@ -92,6 +92,9 @@ set listchars=tab:▸\ ,eol:¬
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
+" NERDTree
+let NERDTreeShowHidden=1
+
 " Color scheme (terminal)
 syntax enable
 set background=dark
