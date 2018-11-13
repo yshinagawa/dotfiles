@@ -16,3 +16,6 @@
 [submodule "vim/.vim/bundle/vim-polyglot"]
 	path = vim/.vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/.vim/bundle/vim-gitgutter"]
+	path = vim/.vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
