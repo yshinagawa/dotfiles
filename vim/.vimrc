@@ -102,6 +102,7 @@ source /usr/local/opt/fzf/plugin/fzf.vim
 
 " NERDTree
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.swp$']
 
 " Color scheme (terminal)
 syntax enable
