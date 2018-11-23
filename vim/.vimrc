@@ -99,6 +99,8 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " fzf
 set rtp+=/usr/local/opt/fzf
 source /usr/local/opt/fzf/plugin/fzf.vim
+nnoremap ; :Buffers<CR>
+nnoremap t :Files<CR>
 
 " NERDTree
 let NERDTreeShowHidden=1
