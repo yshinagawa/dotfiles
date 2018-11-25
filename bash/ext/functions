@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# Execute command on remote Windows PC, and convert output into UTF-8
+function cmd() {
+    ssh win $@ | nkf -w
+}
+
+# Suspend remote Windows PC 
+function winsleep() {
+    cmd rundll32.exe PowrProf.dll, SetSuspendState
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
