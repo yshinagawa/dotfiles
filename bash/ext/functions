@@ -5,9 +5,19 @@ function cmd() {
     ssh win $@ | nkf -w
 }
 
-# Suspend remote Windows PC 
+# Sleep remote Windows PC
 function winsleep() {
-    cmd rundll32.exe PowrProf.dll, SetSuspendState
+    local output=$(ssh win -o "ConnectTimeout=5" "rem" 2>&1)
+    if [ $? -eq 0 ]; then
+        ssh -q -o "ServerAliveInterval=1" -o "ServerAliveCountMax=3" \
+            win "rundll32.exe PowrProf.dll, SetSuspendState"
+        if [ $? -eq 255 ]; then
+            echo -e "\\033[34mZzz\\033[0m\U0001f634"
+            return 0
+        fi
+    else
+        printf "\\033[31m%d\\033[0m %s\n" "$?" "$output"
+    fi
 }
 
 # Create a new directory and enter it
