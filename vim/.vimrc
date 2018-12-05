@@ -15,7 +15,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-" let mapleader = ","
+let mapleader = ","
 
 " Security
 set modelines=0
@@ -34,7 +34,7 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=79
+set textwidth=0
 set formatoptions=cqrn1
 set tabstop=4
 set shiftwidth=4
@@ -103,8 +103,9 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 " fzf
 set rtp+=/usr/local/opt/fzf
 source /usr/local/opt/fzf/plugin/fzf.vim
-nnoremap ; :Buffers<CR>
-nnoremap t :Files<CR>
+nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>g :GFiles<CR>
 
 " NERDTree
 let NERDTreeShowHidden=1
