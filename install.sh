@@ -25,7 +25,7 @@ else
 fi
 
 if [ -d "$HOME/.dotfiles" ]; then
-    printf "\\033[32mDONE:\\033[0m Repository downloaded to ~/.dotfiles\\ncd to ~/dotfiles and run \`make help\` for usage\\n"
+    printf "\\033[32mDONE:\\033[0m Repository downloaded to ~/.dotfiles\\ncd to ~/.dotfiles and run \`make help\` for usage\\n"
 else
     printf "\\033[31mError:\\033[0m Repository either not downloaded or not extracted successfully\\n" >&2
     exit 1
