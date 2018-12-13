@@ -1,4 +1,4 @@
-DOTFILES_DIR := $(shell echo $(HOME)/.dotfiles)
+MAKEFILE_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 BOLD  := \033[1m
 RESET := \033[0m
 CRLF  := \\n
@@ -43,7 +43,7 @@ unlink: unstow
 .PHONY: apt git-init stow unstow
 
 apt:
-	bash $(DOTFILES_DIR)/linux/apt.sh
+	bash $(MAKEFILE_DIR)/linux/apt.sh
 
 git-init:
 	git submodule init
