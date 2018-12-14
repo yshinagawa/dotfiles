@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Set up liquidprompt
-if [ -f "$HOME/.dotfiles/liquidprompt/liquidprompt" ]; then
-	source "$HOME/.dotfiles/liquidprompt/liquidprompt";
+SOURCE_DIR="$(cd "$(dirname ${BASH_SOURCE:-$0})" && pwd)"
+if [ -f "$SOURCE_DIR/liquidprompt/liquidprompt" ]; then
+    source "$SOURCE_DIR/liquidprompt/liquidprompt";
 fi;

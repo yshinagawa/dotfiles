@@ -22,3 +22,6 @@
 [submodule "vim/.vim/bundle/fzf.vim"]
 	path = vim/.vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "bash/.bash/liquidprompt"]
+	path = bash/.bash/liquidprompt
+	url = https://github.com/nojhan/liquidprompt.git

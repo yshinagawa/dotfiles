@@ -1,4 +1,4 @@
-# Load the shell dotfiles
+# Load expansion files 
 for file in ~/.bash/*; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
