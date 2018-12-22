@@ -7,7 +7,7 @@ CRLF  := \\n
 
 all: help
 
-install: linux
+install: ubuntu
 
 .PHONY: help usage
 .SILENT: help usage
@@ -32,9 +32,9 @@ usage:
 	$(CRLF)\
 	"
 
-.PHONY: linux link unlink
+.PHONY: ubuntu link unlink
 
-linux: apt git-init stow
+ubuntu: apt git-init stow
 
 link: stow
 
@@ -43,7 +43,7 @@ unlink: unstow
 .PHONY: apt git-init stow unstow
 
 apt:
-	bash $(MAKEFILE_DIR)/linux/apt.sh
+	bash $(MAKEFILE_DIR)/ubuntu/apt.sh
 
 git-init:
 	git submodule init
