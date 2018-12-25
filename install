@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -eux
+# Run with either command:
+# curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | sh
+# wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | sh
+
+if [ -d "$HOME/.dotfiles" ]; then
+    printf "\\033[31mError:\\033[0m ~/.dotfiles already exists.\\n" >&2
+    exit 1
+fi
+
+[[ -x `command -v git` ]] || sudo -E apt-get -q -y install git
+[[ -x `command -v stow` ]] || sudo -E apt-get -q -y install stow
+
+git clone --recursive https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
+
+cd "$HOME/.dotfiles" && make link
