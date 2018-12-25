@@ -14,4 +14,4 @@ fi
 
 git clone --recursive https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 
-cd "$HOME/.dotfiles" && make link
+cd "$HOME/.dotfiles" && make link && source ~/.bash_profile
