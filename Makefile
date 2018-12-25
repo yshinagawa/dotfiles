@@ -1,22 +1,13 @@
-MAKEFILE_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 BOLD  := \033[1m
 RESET := \033[0m
 CRLF  := \\n
+.DEFAULT_GOAL := help
 
-.PHONY: all install
+all: ;
 
-all: help
-
-install: ubuntu
-
-.PHONY: help usage
-.SILENT: help usage
-
-help: usage
-
-usage:
-	printf "$(CRLF)\
-	Dotfiles - Setup Dev Environment$(CRLF)\
+help:
+	@printf "$(CRLF)\
+	dotfiles - Setup Dev Environment$(CRLF)\
 	$(CRLF)\
 	$(BOLD)USAGE$(RESET)$(CRLF)\
 		make [ target ]$(CRLF)\
@@ -24,38 +15,19 @@ usage:
 	$(BOLD)TARGET$(RESET)$(CRLF)\
 		help		Display this message.$(CRLF)\
 		$(CRLF)\
-		install		Install all configurations and some necessary Unix tools.$(CRLF)\
-		$(CRLF)\
 		link		Symlink configurations to the home directory.$(CRLF)\
 		$(CRLF)\
 		unlink		Remove symlinks created by \`make link\`.$(CRLF)\
 	$(CRLF)\
 	"
 
-.PHONY: ubuntu link unlink
-
-ubuntu: apt git-init stow
-
-link: stow
-
-unlink: unstow
-
-.PHONY: apt git-init stow unstow
-
-apt:
-	bash $(MAKEFILE_DIR)/ubuntu/apt.sh
-
-git-init:
-	git submodule init
-	git submodule update
-
-stow:
+link:
 	stow -vv bash
 	stow -vv git
 	stow -vv ruby
 	stow -vv vim
 
-unstow:
+unlink:
 	stow -D -vv bash
 	stow -D -vv git
 	stow -D -vv ruby
