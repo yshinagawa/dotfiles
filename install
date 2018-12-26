@@ -17,7 +17,7 @@ if !(type stow > /dev/null 2>&1); then
     sudo -E apt-get -q -y install stow
 fi
 
-git clone --depth 1 --recursive https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
+git clone --recursive --depth=1 https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link && cd
 source ./.bash_profile
