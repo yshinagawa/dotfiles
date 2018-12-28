@@ -35,14 +35,14 @@ fi;
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
+# Setup liquidprompt
+[[ $- = *i* ]] && source ~/.bash/liquidprompt/liquidprompt
+
 # Setup rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Setup pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# Setup iTerm2 shell integration
-# [ -e "${HOME}/.iterm2_shell_integration.bash" ] && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Setup fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
