@@ -20,5 +20,6 @@ fi
 git clone --recursive --depth=1 https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link
+~/.bash/fzf/install --bin --no-update-rc
 
 bash -i --login

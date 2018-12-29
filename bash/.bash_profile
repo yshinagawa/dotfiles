@@ -36,7 +36,7 @@ fi;
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
 # Setup liquidprompt
-[[ $- = *i* ]] && source ~/.bash/liquidprompt/liquidprompt
+[[ $- = *i* ]] && [ -f ~/.bash/liquidprompt/liquidprompt ] && source ~/.bash/liquidprompt/liquidprompt
 
 # Setup rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -45,4 +45,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Setup fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [[ ! "$PATH" == *$HOME/.bash/fzf/bin* ]]; then
+    export PATH="$PATH:$HOME/.bash/fzf/bin"
+fi
+[[ $- == *i* ]] && source ~/.bash/fzf/shell/completion.bash 2> /dev/null
+[ -f ~/.bash/fzf/shell/key-bindings.bash ] && source ~/.bash/fzf/shell/key-bindings.bash

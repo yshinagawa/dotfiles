@@ -25,3 +25,6 @@
 [submodule "bash/.bash/liquidprompt"]
 	path = bash/.bash/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
+[submodule "bash/.bash/fzf"]
+	path = bash/.bash/fzf
+	url = https://github.com/junegunn/fzf.git

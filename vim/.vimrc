@@ -101,8 +101,8 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 :set nobackup
 
 " fzf
-set rtp+=/usr/local/opt/fzf
-source /usr/local/opt/fzf/plugin/fzf.vim
+set rtp+=~/.bash/fzf
+source ~/.bash/fzf/plugin/fzf.vim
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>g :GFiles<CR>
