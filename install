@@ -10,16 +10,18 @@ if [ -d "$HOME/.dotfiles" ]; then
 fi
 
 if !(type git > /dev/null 2>&1); then
-    sudo -E apt-get -q -y install git
+    sudo add-apt-repository -y ppa:git-core/ppa
+    sudo apt update
+    sudo apt-get -q -y install git
 fi
 
 if !(type stow > /dev/null 2>&1); then
-    sudo -E apt-get -q -y install stow
+    sudo apt-get -q -y install stow
 fi
 
-git clone --recursive --depth=1 https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
+git clone --recursive --depth=1 --shallow-submodules https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 rm "$HOME/.bashrc"
-cd "$HOME/.dotfiles" && make link
+cd "$HOME/.dotfiles" && make link && cd
 ~/.bash/fzf/install --bin --no-update-rc
 
-bash -i --login
+source ~/.bash_profile
