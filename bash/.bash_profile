@@ -10,6 +10,9 @@ shopt -s nocaseglob;
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
 
+# Sharing history on multiplexer
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
