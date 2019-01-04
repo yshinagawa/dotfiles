@@ -100,12 +100,29 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 :set directory=/tmp
 :set nobackup
 
+" ack.vim(ag)
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
 " fzf
-set rtp+=~/.bash/fzf
-source ~/.bash/fzf/plugin/fzf.vim
-nnoremap <leader>; :Buffers<CR>
-nnoremap <leader>t :Files<CR>
-nnoremap <leader>g :GFiles<CR>
+if executable('fzf')
+    set rtp+=~/.bash/fzf
+    source ~/.bash/fzf/plugin/fzf.vim
+    nnoremap <leader>; :Buffers<CR>
+    nnoremap <leader>t :Files<CR>
+    nnoremap <leader>g :GFiles<CR>
+endif
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " NERDTree
 let NERDTreeShowHidden=1
