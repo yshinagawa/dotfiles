@@ -124,6 +124,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_sh_shellcheck_quiet_messages = {
+    \ "regex": '\m\[SC10\d\d\|SC2230\]' }
+
 " NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.swp$']
