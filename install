@@ -9,19 +9,43 @@ if [ -d "$HOME/.dotfiles" ]; then
     exit 1
 fi
 
-if !(type git > /dev/null 2>&1); then
+function update_git() {
     sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt update
     sudo apt-get -q -y install git
+}
+
+# update git for --shallow-submodules option
+if ! (type git > /dev/null 2>&1); then
+    update_git
+else
+    IFS=" " read -r -a vers <<< "$(git --version | sed -E 's/[^0-9]*([0-9]+)[^0-9]*/\1 /g')"
+    # major < 2
+    if [[ ${vers[0]} -lt 2 ]]; then
+        update_git
+    # major == 2 && minor < 9
+    elif [[ ${vers[0]} -eq 2 ]] && [[ ${vers[1]} -lt 9 ]]; then
+        update_git
+    fi
 fi
 
-if !(type stow > /dev/null 2>&1); then
-    sudo apt-get -q -y install stow
-fi
+# install basic tools
+tools=("make" "stow")
+
+for i in "${tools[@]}"; do
+    if ! (type "$i" > /dev/null 2>&1); then
+        sudo apt-get -q -y install "$i"
+    fi
+done
+
+# install development tools
+sudo apt-get -q -y install shellcheck \
+                           silversearcher-ag
 
 git clone --recursive --depth=1 --shallow-submodules https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
-rm "$HOME/.bashrc"
-cd "$HOME/.dotfiles" && make link && cd
-~/.bash/fzf/install --bin --no-update-rc
+
+[ -e "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
+cd "$HOME/.dotfiles" && make link
+"$HOME"/.bash/fzf/install --bin --no-update-rc
 
 source ~/.bash_profile
