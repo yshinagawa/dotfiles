@@ -42,7 +42,7 @@ done
 sudo apt-get -q -y install shellcheck \
                            silversearcher-ag
 
-git clone --recursive --depth=1 --shallow-submodules https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
+git clone --recursive --depth 1 https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 
 [ -e "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link
