@@ -1,8 +1,8 @@
 #!/bin/bash
-set -x
+set -ex
 # Run with either command:
-# curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | sh
-# wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | sh
+# curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
+# wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
 
 if [ -d "$HOME/.dotfiles" ]; then
     printf "\\033[31mError:\\033[0m ~/.dotfiles already exists.\\n" >&2
@@ -47,5 +47,3 @@ git clone --recursive --depth=1 --shallow-submodules https://github.com/yshinaga
 [ -e "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link
 "$HOME"/.bash/fzf/install --bin --no-update-rc
-
-source ~/.bash_profile
