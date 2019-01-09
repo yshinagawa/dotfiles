@@ -2,16 +2,17 @@
 
 # Execute command on remote Windows PC, and convert output into UTF-8
 function cmd() {
-    ssh win $@ | nkf -w
+    ssh win "$@" | nkf -w
 }
 
 # Sleep remote Windows PC
 function winsleep() {
-    local output=$(ssh win -o "ConnectTimeout=5" "rem" 2>&1)
-    if [ $? -eq 0 ]; then
+    local output
+    output=$(ssh win -o "ConnectTimeout=5" "rem" 2>&1)
+    if [[ $? -eq 0 ]]; then
         ssh -q -o "ServerAliveInterval=1" -o "ServerAliveCountMax=3" \
             win "rundll32.exe PowrProf.dll, SetSuspendState"
-        if [ $? -eq 255 ]; then
+        if [[ $? -eq 255 ]]; then
             echo -e "\\033[34mZzz\\033[0m\U0001f634"
             return 0
         fi
@@ -22,7 +23,7 @@ function winsleep() {
 
 # Create a new directory and enter it
 function mkd() {
-	mkdir -p "$@" && cd "$_";
+	mkdir -p "$@" && cd "$_" || exit;
 }
 
 # Determine size of a file or total size of a directory
@@ -32,7 +33,7 @@ function fs() {
 	else
 		local arg=-sh;
 	fi
-	if [[ -n "$@" ]]; then
+	if [[ -n "$*" ]]; then
 		du $arg -- "$@";
 	else
 		du $arg .[^.]* ./*;
@@ -48,7 +49,8 @@ if [ $? -eq 0 ]; then
 fi;
 
 function dataurl() {
-	local mimeType=$(file -b --mime-type "$1");
+    local mimeType
+	mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
 	fi
@@ -57,9 +59,10 @@ function dataurl() {
 
 # Compare original and gzipped file size
 function gz() {
-	local origsize=$(wc -c < "$1");
-	local gzipsize=$(gzip -c "$1" | wc -c);
-	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
+    local origsize gzipsize ratio
+	origsize=$(wc -c < "$1");
+	gzipsize=$(gzip -c "$1" | wc -c);
+	ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
 	printf "orig: %d bytes\n" "$origsize";
 	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
@@ -81,11 +84,13 @@ function getcertnames() {
 	echo "Testing ${domain}…";
 	echo ""; # newline
 
-	local tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
+    local tmp
+	tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
 		| openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1);
 
 	if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
-		local certText=$(echo "${tmp}" \
+        local certText
+		certText=$(echo "${tmp}" \
 			| openssl x509 -text -certopt "no_aux, no_header, no_issuer, no_pubkey, \
 			no_serial, no_sigdump, no_signame, no_validity, no_version");
 		echo "Common Name:";
@@ -105,7 +110,7 @@ function getcertnames() {
 
 # Normalize `open` across Linux, macOS, and Windows.
 # This is needed to make the `o` function (see below) cross-platform.
-if [ ! $(uname -s) = 'Darwin' ]; then
+if [ ! "$(uname -s)" = 'Darwin' ]; then
 	if grep -q Microsoft /proc/version; then
 		# Ubuntu on Windows using the Linux subsystem
 		alias open='explorer.exe';
