@@ -30,7 +30,7 @@ else
 fi
 
 # install basic tools
-tools=("make" "stow")
+tools=("make" "stow" "nkf")
 
 for i in "${tools[@]}"; do
     if ! (type "$i" > /dev/null 2>&1); then
