@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Execute command on remote Windows PC, and convert output into UTF-8
 function cmd() {
     ssh win "$@" | nkf -w
