@@ -31,4 +31,5 @@ git clone --recursive --depth 1 https://github.com/yshinagawa/dotfiles.git "$HOM
 
 [ -e "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link
-"$HOME"/.bash/fzf/install --bin --no-update-rc
+"$HOME"/.bash/fzf/install --bin --no-update-rc > /dev/null 2>&1
+[[ -e "$HOME"/.bash/fzf/bin/fzf ]] && [[ -x "$HOME"/.bash/fzf/bin/fzf ]] && echo "fzf was successfully installed."
