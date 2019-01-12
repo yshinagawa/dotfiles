@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 # Run with either command:
 # curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
 # wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
@@ -9,7 +9,7 @@ if [ -d "$HOME/.dotfiles" ]; then
     exit 1
 fi
 
-printf "\\033[32mStart environment setup.\\033[0m\\n"
+printf "\\033[32mStart:\\033[0m Setup environment.\\n"
 
 # install latest git
 sudo add-apt-repository -y ppa:git-core/ppa
