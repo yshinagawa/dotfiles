@@ -11,23 +11,15 @@
     summary = status -u -s
     graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %ar) %Cred%d' --date-order
     history = log -10 --format=format:'%Cgreen%h %Creset%s (%aN, %ar)'
-    new-branch = checkout -b
-    rename-branch = branch -m
-    delete-branch = branch -D
     branches = branch
     recent-branches = branch -a --sort=committerdate
     tags = tag
     stashes = stash list
-    prestage = diff
     precommit = diff --cached
     remotes = remote -v
-    move = mv
-    remove = rm
     unmerged = branch --no-merged
     unstash = stash pop
-    what = show
     untrack = rm -r --cached
-    back = checkout 
     # View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
     # View the current working tree status using the short format
