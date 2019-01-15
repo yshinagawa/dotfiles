@@ -17,7 +17,7 @@ sudo apt update
 sudo apt-get -q -y install git
 
 # install basic tools
-tools=("make" "stow" "nkf")
+tools=("make" "stow" "nkf" "tmux")
 
 for i in "${tools[@]}"; do
     if ! (type "$i" > /dev/null 2>&1); then
