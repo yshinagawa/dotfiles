@@ -97,7 +97,7 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " backup
-:set directory=/tmp
+:set directory=/var/tmp
 :set nobackup
 
 " ack.vim(ag)
@@ -131,6 +131,18 @@ let g:syntastic_sh_shellcheck_quiet_messages = {
 " NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.swp$']
+
+" lightline
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ }
 
 " Color scheme (terminal)
 syntax enable
