@@ -2,15 +2,17 @@
 set -e
 
 tools=(
-        make
-        stow
-        nkf
-        tmux
-        shellcheck
-        silversearcher-ag
+        "make"
+        "stow"
+        "nkf"
+        "tmux"
+        "shellcheck"
+        "silversearcher-ag"
       )
 
-sudo apt-get -q -y "${tools[@]}"
+for i in "${tools[@]}"; do
+    sudo apt-get -q -y install "$i"
+done
 
 "$HOME"/.dotfiles/.bash/fzf/install --bin --no-update-rc > /dev/null 2>&1
 if ! [[ -x "$HOME"/.dotfiles/.bash/fzf/bin/fzf ]]; then
