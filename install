@@ -5,11 +5,11 @@ set -e
 # wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
 
 if [ -d "$HOME/.dotfiles" ]; then
-    printf "\\033[31mError:\\033[0m ~/.dotfiles already exists.\\n" >&2
+    printf "\\033[31mAuto setup:\\033[0m Error. ~/.dotfiles already exists.\\n" >&2
     exit 1
 fi
 
-printf "\\033[32mStart:\\033[0m Setup environment.\\n"
+printf "\\033[32mAuto setup:\\033[0m Start.\\n"
 
 # install latest git
 sudo add-apt-repository -y ppa:git-core/ppa
@@ -21,4 +21,13 @@ git clone --recursive --depth 1 https://github.com/yshinagawa/dotfiles.git "$HOM
 
 . "$HOME/.dotfiles/setup.sh"
 
-printf "\\033[32mSuccess:\\033[0m All done!\\n"
+# for load from /etc/bash_completion
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    sudo ln -s /usr/share/bash-completion/completions/git /etc/bash_completion.d/git
+fi
+
+# symlink to home
+[ -f "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
+cd "$HOME/.dotfiles" && make link
+
+printf "\\033[32mAuto setup:\\033[0m All done!\\n"
