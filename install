@@ -43,11 +43,6 @@ git clone -b $branch --recursive --depth 1 https://github.com/yshinagawa/dotfile
 
 . "$HOME/.dotfiles/setup.sh"
 
-# for load from /etc/bash_completion
-if [ -f /usr/share/bash-completion/completions/git ]; then
-    sudo ln -s /usr/share/bash-completion/completions/git /etc/bash_completion.d/git
-fi
-
 # symlink to home
 [ -f "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
 cd "$HOME/.dotfiles" && make link
