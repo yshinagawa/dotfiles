@@ -25,3 +25,6 @@ fi
 if [ -f /usr/share/bash-completion/completions/git ]; then
     sudo cp /usr/share/bash-completion/completions/git /etc/bash_completion.d/git
 fi
+
+# symlink dotfiles to home directory
+. "$HOME/.dotfiles/link.sh"
