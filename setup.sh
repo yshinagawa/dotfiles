@@ -3,10 +3,10 @@ set -e
 
 tools=(
         "stow"
-        # "nkf"
-        # "tmux"
-        # "shellcheck"
-        # "silversearcher-ag"
+        "nkf"
+        "tmux"
+        "shellcheck"
+        "silversearcher-ag"
       )
 
 for i in "${tools[@]}"; do

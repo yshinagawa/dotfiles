@@ -18,20 +18,20 @@ done
 
 # managing dotfiles list
 baks=(
-    # bash
+
     ".bash_profile"
     ".bashrc"
     ".inputrc"
     ".liquidpromptrc"
     ".tmux.conf"
-    # git
+
     ".gitconfig"
     ".global_ignore"
-    # ruby
+
     ".gemrc"
     ".irbrc"
     ".pryrc"
-    # vim
+
     ".vimrc"
     )
 
@@ -45,14 +45,14 @@ if [[ $unlink -eq 1 ]]; then
 
     for i in "${baks[@]}"; do
         if [ -f "$HOME"/"$i".bak ]; then
-            printf "Restore: %s.bak -> %s" "$i" "$i"
+            printf "\\033[32mRestore:\\033[0m %s.bak -> %s\\n" "$i" "$i"
             mv "$HOME"/"$i".bak "$HOME"/"$i"
         fi
     done
 else
     for i in "${baks[@]}"; do
         if [ -f "$HOME"/"$i" ]; then
-            printf "Backup: %s -> %s.bak" "$i" "$i"
+            printf "\\033[32mBackup:\\033[0m %s -> %s.bak\\n" "$i" "$i"
             mv "$HOME"/"$i" "$HOME"/"$i".bak
         fi
     done 
