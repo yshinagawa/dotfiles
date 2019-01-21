@@ -11,6 +11,7 @@ for opt in "$@"; do
     case $opt in
         -d | --debug )
             debug=1
+            shift
             ;;
         *)
             printf "\\033[31mAuto setup:\\033[0m Error. Unknown option: %s\\n" "$opt" >&2
@@ -18,8 +19,6 @@ for opt in "$@"; do
             ;;
     esac
 done
-
-set --
 
 if [[ $debug -eq 1 ]]; then
     set -x
