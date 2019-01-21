@@ -43,8 +43,4 @@ git clone -b $branch --recursive --depth 1 https://github.com/yshinagawa/dotfile
 
 . "$HOME/.dotfiles/setup.sh"
 
-# symlink to home
-[ -f "$HOME/.bashrc" ] && rm "$HOME/.bashrc"
-cd "$HOME/.dotfiles" && make link
-
 printf "\\033[32mAuto setup:\\033[0m All done!\\n"
