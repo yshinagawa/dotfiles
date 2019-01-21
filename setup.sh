@@ -25,9 +25,5 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
     sudo cp /usr/share/bash-completion/completions/git /etc/bash_completion.d/git
 fi
 
-echo "---------------------"
-echo "arguments in setup.sh:"
-echo "$@"
-echo "---------------------"
 # symlink dotfiles to home directory
 source "$HOME/.dotfiles/link.sh"

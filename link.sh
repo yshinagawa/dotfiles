@@ -3,14 +3,11 @@ set -e
 
 unlink=
 
-echo "---------------------"
-echo "arguments in link.sh:"
-echo "$@"
-echo "---------------------"
 for opt in "$@"; do
     case $opt in
         --unlink )
             unlink=1
+            shift
             ;;
         *)
             printf "\\033[31mError:\\033[0m Unknown option: %s\\n" "$opt" >&2
@@ -38,11 +35,14 @@ baks=(
     ".vimrc"
     )
 
+stow_dir="$HOME/.dotfiles"
+
 if [[ $unlink -eq 1 ]]; then
-    stow -D -vv "$HOME"/.dotfiles/bash
-    stow -D -vv "$HOME"/.dotfiles/git
-    stow -D -vv "$HOME"/.dotfiles/ruby
-    stow -D -vv "$HOME"/.dotfiles/vim
+    stow -d "$stow_dir" -D -vv bash
+    stow -d "$stow_dir" -D -vv git
+    stow -d "$stow_dir" -D -vv ruby
+    stow -d "$stow_dir" -D -vv vim
+
     for i in "${baks[@]}"; do
         if [ -f "$HOME"/"$i".bak ]; then
             printf "Restore: %s.bak -> %s" "$i" "$i"
@@ -56,8 +56,9 @@ else
             mv "$HOME"/"$i" "$HOME"/"$i".bak
         fi
     done 
-    stow -vv "$HOME"/.dotfiles/bash
-    stow -vv "$HOME"/.dotfiles/git
-    stow -vv "$HOME"/.dotfiles/ruby
-    stow -vv "$HOME"/.dotfiles/vim
+
+    stow -d "$stow_dir" -vv bash
+    stow -d "$stow_dir" -vv git
+    stow -d "$stow_dir" -vv ruby
+    stow -d "$stow_dir" -vv vim
 fi
