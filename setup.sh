@@ -27,4 +27,4 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 fi
 
 # symlink dotfiles to home directory
-. "$HOME/.dotfiles/link.sh"
+./link.sh
