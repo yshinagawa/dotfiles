@@ -19,6 +19,8 @@ for opt in "$@"; do
     esac
 done
 
+set --
+
 if [[ $debug -eq 1 ]]; then
     set -x
     printf "\\033[31mAuto setup:\\033[0m Debug mode.\\n"
@@ -41,7 +43,6 @@ sudo apt-get -q -y install git
 # clone repository
 git clone -b $branch --recursive --depth 1 https://github.com/yshinagawa/dotfiles.git "$HOME/.dotfiles"
 
-cd "$HOME/.dotfiles"
-./setup.sh
+source "$HOME/.dotfiles/setup.sh"
 
 printf "\\033[32mAuto setup:\\033[0m All done!\\n"

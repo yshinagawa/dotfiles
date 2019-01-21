@@ -1,15 +1,12 @@
 #!/bin/bash
 set -e
 
-source_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-
 tools=(
-        "make"
         "stow"
-        "nkf"
-        "tmux"
-        "shellcheck"
-        "silversearcher-ag"
+        # "nkf"
+        # "tmux"
+        # "shellcheck"
+        # "silversearcher-ag"
       )
 
 for i in "${tools[@]}"; do
@@ -29,4 +26,4 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 fi
 
 # symlink dotfiles to home directory
-./"$source_dir"/link.sh
+source "$HOME/.dotfiles/link.sh"
