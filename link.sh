@@ -3,6 +3,10 @@ set -e
 
 unlink=
 
+echo "---------------------"
+echo "arguments in link.sh:"
+echo "$@"
+echo "---------------------"
 for opt in "$@"; do
     case $opt in
         --unlink )
