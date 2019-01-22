@@ -10,18 +10,28 @@ Files for Ubuntu development environment setup.
 * [Vim](https://www.vim.org/) - [pathogen](https://github.com/tpope/vim-pathogen) for plugin manager, [the silver searcher](https://geoff.greer.fm/ag/) for searching code.
 
 ## Installation
-#### One-liner
+#### One-liner install
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
+$ curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash && source ~/.bash_profile
 ```
-or
-```bash
-$ wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
-```
-#### Manual
+
+#### Manual install
 ```bash
 $ cd ~
 $ git clone --recursive --depth 1 https://github.com/yshinagawa/dotfiles.git ".dotfiles"
-$ cd .dotfiles && make link
-$ .bash/fzf/install --bin --no-update-rc
+$ .dotfiles/setup.sh
+$ source .bash_profile
+```
+
+## Symlinks
+#### Cleanup symlinks
+```bash
+$ cd ~
+$ .dotfiles/link.sh --unlink
+```
+
+#### Recreate symlinks
+```bash
+$ cd ~
+$ .dotfiles/link.sh
 ```

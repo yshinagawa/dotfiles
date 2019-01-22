@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 # Run with either command:
-# curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
-# wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash
+# curl -fsSL https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash && source ~/.bash_profile
+# wget -qO- https://raw.githubusercontent.com/yshinagawa/dotfiles/master/install | bash && source ~/.bash_profile
 
 branch="master"
 debug=
