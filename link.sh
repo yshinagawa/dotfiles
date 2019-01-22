@@ -55,7 +55,7 @@ else
             printf "\\033[32mBackup:\\033[0m %s -> %s.bak\\n" "$i" "$i"
             mv "$HOME"/"$i" "$HOME"/"$i".bak
         fi
-    done 
+    done
 
     stow -d "$stow_dir" -vv bash
     stow -d "$stow_dir" -vv git
