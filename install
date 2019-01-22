@@ -45,7 +45,3 @@ git clone -b $branch --recursive --depth 1 https://github.com/yshinagawa/dotfile
 source "$HOME/.dotfiles/setup.sh"
 
 printf "\\033[32mAuto setup:\\033[0m All done!\\n"
-
-if [ -n "$PS1" ]; then
-    source "$HOME/.bash_profile"
-fi
