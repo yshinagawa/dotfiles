@@ -23,7 +23,6 @@ baks=(
     ".bashrc"
     ".inputrc"
     ".liquidpromptrc"
-    ".tmux.conf"
 
     ".gitconfig"
     ".global_ignore"
@@ -31,6 +30,8 @@ baks=(
     ".gemrc"
     ".irbrc"
     ".pryrc"
+
+    ".tmux.conf"
 
     ".vimrc"
     )
@@ -41,6 +42,7 @@ if [[ $unlink -eq 1 ]]; then
     stow -d "$stow_dir" -D -vv bash
     stow -d "$stow_dir" -D -vv git
     stow -d "$stow_dir" -D -vv ruby
+    stow -d "$stow_dir" -D -vv tmux
     stow -d "$stow_dir" -D -vv vim
 
     for i in "${baks[@]}"; do
@@ -60,5 +62,6 @@ else
     stow -d "$stow_dir" -vv bash
     stow -d "$stow_dir" -vv git
     stow -d "$stow_dir" -vv ruby
+    stow -d "$stow_dir" -vv tmux
     stow -d "$stow_dir" -vv vim
 fi
