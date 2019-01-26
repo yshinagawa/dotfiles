@@ -69,3 +69,6 @@ auto/
 session.vim
 .netrwhist
 *~
+
+# tmux #####################################################
+resurrect/

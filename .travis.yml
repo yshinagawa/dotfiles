@@ -1,0 +1,15 @@
+language: generic
+
+before_install:
+  - sudo apt-get update
+  - ln -s "$(pwd)" $HOME/.dotfiles
+
+addons:
+  apt:
+    packages:
+      - silversearcher-ag
+
+install:
+  - ./setup.sh
+
+sudo: required
