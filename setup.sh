@@ -16,11 +16,6 @@ done
 # install fzf
 "$HOME"/.dotfiles/bash/.bash/fzf/install --bin --no-update-rc
 
-# install git-completion
-if [ -f /usr/share/bash-completion/completions/git ]; then
-    sudo cp /usr/share/bash-completion/completions/git /etc/bash_completion.d/git
-fi
-
 # timezone
 sudo timedatectl set-timezone Asia/Tokyo
 
