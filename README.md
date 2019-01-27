@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [![Build Status](https://travis-ci.com/yshinagawa/dotfiles.svg?branch=master)](https://travis-ci.com/yshinagawa/dotfiles)
 
 Files for Ubuntu development environment setup.
 
