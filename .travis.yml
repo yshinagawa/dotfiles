@@ -11,5 +11,3 @@ addons:
 
 install:
   - ./setup.sh
-
-sudo: required
