@@ -5,6 +5,7 @@ Files for Ubuntu development environment setup.
 ## Environment
 * [Bash](https://www.gnu.org/software/bash/) - [fzf](https://github.com/junegunn/fzf) for interactive filter, [liquidprompt](https://github.com/nojhan/liquidprompt) for customize prompt.
 * [git](https://git-scm.com/) - Manage plugins as a git-submodule.
+* [Homebrew](https://brew.sh/) - Package manager.
 * [Stow](https://www.gnu.org/software/stow/) - Create symlinks to home directory.
 * [tmux](https://github.com/tmux/tmux) - Essencial terminal multiplexer.
 * [Vim](https://www.vim.org/) - [pathogen](https://github.com/tpope/vim-pathogen) for plugin manager, [the silver searcher](https://geoff.greer.fm/ag/) for searching code.

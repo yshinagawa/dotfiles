@@ -1,3 +1,24 @@
+# Setup Homebrew
+if [ -h /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# Setup liquidprompt
+[[ $- = *i* ]] && [ -f ~/.bash/liquidprompt/liquidprompt ] && source ~/.bash/liquidprompt/liquidprompt
+
+# Setup rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Setup pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Setup fzf
+if [[ ! "$PATH" == *$HOME/.bash/fzf/bin* ]]; then
+    export PATH="$PATH:$HOME/.bash/fzf/bin"
+fi
+[[ $- == *i* ]] && source ~/.bash/fzf/shell/completion.bash 2> /dev/null
+[ -f ~/.bash/fzf/shell/key-bindings.bash ] && source ~/.bash/fzf/shell/key-bindings.bash
+
 # Load expansion files 
 for file in ~/.bash/*; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -41,24 +62,3 @@ fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-
-# Setup Homebrew
-if [ -h /home/linuxbrew/.linuxbrew/bin/brew ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-# Setup liquidprompt
-[[ $- = *i* ]] && [ -f ~/.bash/liquidprompt/liquidprompt ] && source ~/.bash/liquidprompt/liquidprompt
-
-# Setup rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Setup pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# Setup fzf
-if [[ ! "$PATH" == *$HOME/.bash/fzf/bin* ]]; then
-    export PATH="$PATH:$HOME/.bash/fzf/bin"
-fi
-[[ $- == *i* ]] && source ~/.bash/fzf/shell/completion.bash 2> /dev/null
-[ -f ~/.bash/fzf/shell/key-bindings.bash ] && source ~/.bash/fzf/shell/key-bindings.bash
