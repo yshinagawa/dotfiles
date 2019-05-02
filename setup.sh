@@ -2,6 +2,7 @@
 set -e
 
 tools=(
+        "build-essential"
         "stow"
         "nkf"
         "tmux"
@@ -12,6 +13,11 @@ tools=(
 for i in "${tools[@]}"; do
     sudo apt-get -q -y install "$i"
 done
+
+# install Homebrew
+sudo git clone --depth 1 https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
+sudo mkdir /home/linuxbrew/.linuxbrew/bin
+sudo ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin
 
 # install fzf
 "$HOME"/.dotfiles/bash/.bash/fzf/install --bin --no-update-rc
