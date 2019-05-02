@@ -16,8 +16,9 @@ done
 
 # install Homebrew
 sudo git clone --depth 1 https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
-sudo mkdir /home/linuxbrew/.linuxbrew/bin
-sudo ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin
+sudo chown -R $(whoami):$(whoami) /home/linuxbrew
+mkdir /home/linuxbrew/.linuxbrew/bin
+ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin
 
 # install fzf
 "$HOME"/.dotfiles/bash/.bash/fzf/install --bin --no-update-rc
