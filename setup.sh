@@ -20,6 +20,10 @@ sudo chown -R $(whoami):$(whoami) /home/linuxbrew
 mkdir /home/linuxbrew/.linuxbrew/bin
 ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin
 
+# install node
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -q -y nodejs
+
 # install fzf
 "$HOME"/.dotfiles/bash/.bash/fzf/install --bin --no-update-rc
 
