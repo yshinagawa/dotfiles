@@ -1,3 +1,8 @@
+# Setup node
+if [[ $(npm config get prefix) == "$HOME/.npm-global" ]]; then
+    export PATH="$HOME"/.npm-global/bin:"$PATH"
+fi
+
 # Setup Homebrew
 if [ -h /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
