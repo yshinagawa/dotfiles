@@ -23,6 +23,15 @@ ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bi
 # install node
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -q -y nodejs
+# change npm's default directory https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
+mkdir "$HOME"/.npm-global
+npm config set prefix "$HOME/.npm-global"
+export PATH="$HOME"/.npm-global/bin:"$PATH"
+
+# install yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install -q -y yarn
 
 # install fzf
 "$HOME"/.dotfiles/bash/.bash/fzf/install --bin --no-update-rc
