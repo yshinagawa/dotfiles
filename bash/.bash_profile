@@ -8,6 +8,11 @@ if [ -d "$HOME/.npm-global" ]; then
     export PATH="$HOME"/.npm-global/bin:"$PATH"
 fi
 
+# Setup Go
+if [ -d "$HOME/.go" ]; then
+    export GOPATH=$HOME/.go
+fi
+
 # Setup liquidprompt
 [[ $- = *i* ]] && [ -f ~/.bash/liquidprompt/liquidprompt ] && source ~/.bash/liquidprompt/liquidprompt
 
